@@ -3,3 +3,5 @@
 *.gcno
 *.gcda
 .DS_Store
+main
+scripts
