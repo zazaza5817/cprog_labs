@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 // Функция для расчета квадрата расстояния между двумя точками
 double sqr_distance(double x1, double y1, double x2, double y2)  
@@ -30,21 +31,21 @@ int classify_triangle(double x1, double y1, double x2, double y2, double x3, dou
         c = temp;
     }
     // Классифицировать треугольник по теореме Пифагора
-    if (a == b + c)  
+    if (fabs(a - (b + c)) < 0.0001)  
     {
-        return  1;
+        return 1;
     }  
     else if (a > b + c)  
     {
-        return  2;
+        return 2;
     }  
     else  
     {
-        return  0;
+        return 0;
     }
 }
 
-int main()  
+int main(void)  
 {
     double x1, y1, x2, y2, x3, y3;
     int triagle_class;
@@ -56,13 +57,13 @@ int main()
     scan_result += scanf("%lf %lf", &x2, &y2);
     printf("Введите координаты третьей вершины (x y): ");
     scan_result += scanf("%lf %lf", &x3, &y3);
-    if (scan_result !=  6)  
+    if (scan_result != 6)  
     {
         printf("ошибка ввода\n");
-        return  1;
+        return 1;
     }
     // Классификация треугольника
     triagle_class = classify_triangle(x1, y1, x2, y2, x3, y3);
     printf("%d", triagle_class);
-    return   0;
+    return 0;
 }

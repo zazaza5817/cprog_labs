@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 
-int main() 
+int main(void) 
 {
-    double a, b, h, c, P;
+    double a, b, h, c, per;
 
     // Чтение оснований и высоты с клавиатуры
     printf("Enter base length a: ");
@@ -21,10 +21,10 @@ int main()
     // Вычисление периметра равнобедренной трапеции
     c = fabs(a - b) / 2;
     c = sqrtf(c * c + h * h);
-    P =  a + b + 2 * c;
+    per = a + b + 2 * c;
 
     // Вывод периметра на экран
-    printf("Perimeter of an isosceles trapezoid: %.6lf\n", P);
+    printf("Perimeter of an isosceles trapezoid: %.6lf\n", per);
 
     return  0;
 }

@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-int main() 
+int main(void) 
 {
     // Объявление переменных
     int h; // Рост в сантиметрах
     int t; // Обхват грудной клетки в сантиметрах
     double m; // Масса тела в килограммах
     double m_normal; // Нормальный вес
-    double BMI; // Индекс массы тела
+    double bmi; // Индекс массы тела
 
     // Чтение данных
     printf("Enter height in centimeters: ");
@@ -33,14 +33,14 @@ int main()
     }
 
     // Расчет нормального веса
-    m_normal = ((double)h /  240) * t;
+    m_normal = ((double)h / 240) * t;
 
     // Расчет BMI
-    BMI = m / ((double)h * h);
+    bmi = m / ((double)h * h);
 
     // Вывод результатов
     printf("Normal weight: %.6lf кг\n", m_normal);
-    printf("BMI: %.6lf\n", BMI);
+    printf("BMI: %.6lf\n", bmi);
 
-    return  0;
+    return 0;
 }
