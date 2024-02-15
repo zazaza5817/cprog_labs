@@ -22,29 +22,29 @@ int main(void)
     float x, eps, absolute_error, relative_error; // Переменные для хранения входных данных и ошибок
     int scanned; // Переменная для проверки успешности чтения данных
 
-    printf("Введите значение x: ");
+    printf("Enter x value: ");
     scanned = scanf("%f", &x);
     if (scanned != 1)  
     {
-        fprintf(stderr, "x должно быть вещественным числом");
+        fprintf(stderr, "x must be a real number");
         return 1;
     }
     if (fabs(x) > 1)
     {
-        fprintf(stderr, "абсолютное значение x должно быть меньше или равно единице");
+        fprintf(stderr, "the absolute value of x must be less than or equal to one");
         return 1;
     }
 
-    printf("Введите значение эпсилон: ");
+    printf("Enter epsilon value: ");
     scanned = scanf("%f", &eps);
     if (scanned != 1)  
     {
-        fprintf(stderr, "эпсилон должно быть вещественным числом");
+        fprintf(stderr, "epsilon must be a real number");
         return 1;
     }
     if (eps <= 0 || eps > 1)
     {
-        fprintf(stderr, "эпсилон должно быть больше нуля и меньше или равно единице");
+        fprintf(stderr, "epsilon must be greater than zero and less than or equal to one");
         return 1;
     }
 
@@ -56,8 +56,8 @@ int main(void)
         relative_error = absolute_error / fabs(f_value); // Вычисляем относительную ошибку
     printf("s(x) = %.6f\n", s_value); // Выводим приближенное значение синуса
     printf("f(x) = %.6f\n", f_value); // Выводим точное значение синуса
-    printf("Абсолютная ошибка : %.6f\n", absolute_error); // Выводим абсолютную ошибку
-    printf("Относительная ошибка : %.6f\n", relative_error); // Выводим относительную ошибку
+    printf("Absolute error: %.6f\n", absolute_error); // Выводим абсолютную ошибку
+    printf("Relative error : %.6f\n", relative_error); // Выводим относительную ошибку
 
     return 0; // Завершаем программу
 }
