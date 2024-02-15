@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void) // Главная функция программы
+int main(void)
 {
     // Переменная для хранения общего количества копеек
     int total_kopecks;
@@ -10,7 +10,7 @@ int main(void) // Главная функция программы
     scanf("%d", &total_kopecks);
 
     // Проверка корректности ввода
-    if (total_kopecks <  0)
+    if (total_kopecks < 0)
     {
         // Вывод сообщения об ошибке если сумма меньше нуля
         printf("the sum of kopecks must be greater than zero");
@@ -18,7 +18,7 @@ int main(void) // Главная функция программы
     }
 
     // Проверка возможности покупки хотя бы одной бутылки
-    if (total_kopecks <  45)
+    if (total_kopecks < 45)
     {
         // Вывод сообщения о максимальном количестве бутылок
         printf("The maximum number of water bottles that can be bought is:  0");
@@ -26,7 +26,7 @@ int main(void) // Главная функция программы
     }
 
     // Расчет максимального количества бутылок, которые можно купить
-    int answer = ((total_kopecks -  45) /  25) +  1;
+    int answer = ((total_kopecks - 45) / 25) + 1;
 
     // Вывод результата
     printf("The maximum number of water bottles that can be bought is: %d\n", answer);

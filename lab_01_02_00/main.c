@@ -26,5 +26,5 @@ int main(void)
     // Вывод периметра на экран
     printf("Perimeter of an isosceles trapezoid: %.6lf\n", per);
 
-    return  0;
+    return 0;
 }

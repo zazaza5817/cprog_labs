@@ -2,9 +2,9 @@
 #include <math.h>
 
 // Функция для вычисления приближенного значения синуса с помощью ряда Тейлора
-double s(double x, double eps)
+float s(float x, float eps)
 {
-    double current_term = x, result = 0.0; // Инициализация текущего члена и результата
+    float current_term = x, result = 0.0; // Инициализация текущего члена и результата
     int n = 0; // Счетчик для итераций
     while (fabs(current_term) >= eps) 
     {
@@ -20,16 +20,16 @@ double s(double x, double eps)
         {
             denominator *= i; // Вычисляем факториал для знаменателя
         }
-        double main_part; // Главная часть ряда
-        main_part = (powf(x, (2 * n + 1))) / (double)(2 * n + 1); // Вычисляем главную часть ряда
-        current_term = ((double)numerator / denominator) * main_part; // Обновляем текущий член ряда
+        float main_part; // Главная часть ряда
+        main_part = (powf(x, (2 * n + 1))) / (float)(2 * n + 1); // Вычисляем главную часть ряда
+        current_term = ((float)numerator / denominator) * main_part; // Обновляем текущий член ряда
     }
     return result; // Возвращаем результат
 }
 
 int main(void)  
 {
-    double x, eps, absolute_error, relative_error; // Переменные для хранения входных данных и ошибок
+    float x, eps, absolute_error, relative_error; // Переменные для хранения входных данных и ошибок
     int scanned; // Переменная для проверки успешности чтения данных
 
     printf("Введите значение x: ");
@@ -58,8 +58,8 @@ int main(void)
         return 1;
     }
 
-    double s_value = s(x, eps); // Вычисляем приближенное значение синуса
-    double f_value = asin(x); // Вычисляем точное значение синуса
+    float s_value = s(x, eps); // Вычисляем приближенное значение синуса
+    float f_value = asin(x); // Вычисляем точное значение синуса
     absolute_error = fabs(f_value - s_value); // Вычисляем абсолютную ошибку
     relative_error = 0.0; // Инициализируем относительную ошибку
     if (fabs(f_value) > eps)

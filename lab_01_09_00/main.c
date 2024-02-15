@@ -1,17 +1,19 @@
 #include <stdio.h>
+#include <float.h>
 #include <math.h>
 
 int main(void)  
 {
     // Объявляем переменные для хранения результата и входных данных
-    double result = 0; // Инициализируем результат нулем
-    double input;
+    float result = 0; // Инициализируем результат нулем
+    float input;
     int n = 0; // Счетчик для деления
     int scan_result;
+    float new_term;
 
     // Запрашиваем первое значение x от пользователя
     printf("enter first x: ");
-    scan_result = scanf("%lf", &input);
+    scan_result = scanf("%f", &input);
 
     // Проверка успешности считывания числа с плавающей точкой
     if (scan_result != 1)
@@ -32,11 +34,17 @@ int main(void)
 
         // Увеличиваем счетчик и обновляем результат
         n += 1;
-        result += input / n;
+        new_term = input / n;
+        if (new_term > DBL_MAX - result)
+        {
+            printf("OWERFLOW DOUBLE TYPE");
+            return 1;
+        }
+        result += new_term;
 
         // Запрашиваем следующее значение x
         printf("enter next x: ");
-        scan_result = scanf("%lf", &input);
+        scan_result = scanf("%f", &input);
     }
 
     // Выводим квадратный корень из суммы

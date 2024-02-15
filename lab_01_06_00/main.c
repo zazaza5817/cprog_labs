@@ -10,6 +10,11 @@ double sqr_distance(double x1, double y1, double x2, double y2)
 // Функция для классификации треугольника
 int classify_triangle(double x1, double y1, double x2, double y2, double x3, double y3)  
 {
+    double area = fabs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0);
+    if (area <= 0.0001) 
+    {
+        return -1; // Точки лежат на одной или прямой или две/три точки совпадают
+    }
     double a, b, c; // Квадрат длин сторон
 
     // Рассчитать квадраты длин сторон
@@ -64,6 +69,11 @@ int main(void)
     }
     // Классификация треугольника
     triagle_class = classify_triangle(x1, y1, x2, y2, x3, y3);
+    if (triagle_class == -1)
+    {
+        printf("the entered point coordinates do not form a triangle");
+        return 1;
+    }
     printf("%d", triagle_class);
     return 0;
 }
