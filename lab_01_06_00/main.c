@@ -64,14 +64,14 @@ int main(void)
     scan_result += scanf("%lf %lf", &x3, &y3);
     if (scan_result != 6)  
     {
-        printf("ошибка ввода\n");
+        fprintf(stderr, "ошибка ввода\n");
         return 1;
     }
     // Классификация треугольника
     triagle_class = classify_triangle(x1, y1, x2, y2, x3, y3);
     if (triagle_class == -1)
     {
-        printf("the entered point coordinates do not form a triangle");
+        fprintf(stderr, "the entered point coordinates do not form a triangle");
         return 1;
     }
     printf("%d", triagle_class);

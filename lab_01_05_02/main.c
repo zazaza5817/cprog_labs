@@ -48,7 +48,7 @@ int main(void)
     if (status != 1 || (status == 1 && n < 0))  
     {
         // Если ввод некорректен, выводим сообщение об ошибке и завершаем программу
-        printf("Wrong input!\n");
+        fprintf(stderr, "Wrong input!\n");
         return 1;
     }
     int fib = get_fib(n);

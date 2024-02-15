@@ -14,7 +14,7 @@ int main(void)
     scanf("%lf", &h);
     if (a <= 0 || b <= 0 || h <= 0)
     {
-        printf("the dimensions of the bases and heights must be greater than zero");
+        fprintf(stderr, "the dimensions of the bases and heights must be greater than zero");
         return 1;
     }
 

@@ -13,7 +13,7 @@ int main(void)
     if (total_kopecks < 0)
     {
         // Вывод сообщения об ошибке если сумма меньше нуля
-        printf("the sum of kopecks must be greater than zero");
+        fprintf(stderr, "the sum of kopecks must be greater than zero");
         return 1; // Возврат с кодом ошибки
     }
 

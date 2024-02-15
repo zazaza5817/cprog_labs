@@ -14,9 +14,15 @@ float get_f_value(void)
     scan_result = scanf("%f", &input);
     if (scan_result != 1)
     {
-        printf("only float must be inputted");
+        fprintf(stderr, "only float must be inputted");
         return -1;
     }
+    if (input < 0)
+    {
+        fprintf(stderr, "sequence cannot be empty");
+        return -1;
+    }
+    
 
     while (input >= 0)
     {
@@ -28,7 +34,7 @@ float get_f_value(void)
         scan_result = scanf("%f", &input);
         if (scan_result != 1)
         {
-            printf("only float must be inputted");
+            fprintf(stderr, "only float must be inputted");
             return -1;
         }
     }

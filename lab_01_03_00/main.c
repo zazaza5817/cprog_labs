@@ -13,21 +13,21 @@ int main(void)
     scanf("%f", &h);
     if (h <= 0)
     {
-        printf("height must be greater then zero");
+        fprintf(stderr, "height must be greater then zero");
         return 1;
     }
     printf("Enter chest circumference in centimeters: ");
     scanf("%f", &t);
     if (t <= 0)
     {
-        printf("chest circumference must be greater then zero");
+        fprintf(stderr, "chest circumference must be greater then zero");
         return 1;
     }
     printf("Enter body weight in kilograms: ");
     scanf("%f", &m);
     if (m <= 0)
     {
-        printf("body weight must be greater then zero");
+        fprintf(stderr, "body weight must be greater then zero");
         return 1;
     }
 
