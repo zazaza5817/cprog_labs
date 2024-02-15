@@ -1,5 +1,6 @@
 #include <stdio.h> // Подключение библиотеки стандартного ввода-вывода
 #include <stdint.h>
+#include <inttypes.h> 
 
 // Функция для вывода двоичного представления числа в  4 байта
 void print_four_byte_binary(uint32_t num) 
@@ -24,20 +25,13 @@ int main(void)
     uint32_t a; // Переменная для хранения числа
     int n; // Переменная для хранения количества сдвигов
     int scan_result; // Переменная для проверки успешности сканирования
-    long long input;
     printf("Enter an unsigned integer four bytes long: "); // Запрос на ввод числа
-    scan_result = scanf("%u", &a); // Считывание числа
+    scan_result = scanf("%" PRIu32, &a); // Считывание числа
     if (scan_result != 1)
     {
         fprintf(stderr, "Error: an unsigned number must be entered"); // Сообщение об ошибке
         return 1; // Возврат из программы с кодом ошибки
     }
-    // if (input < 0 || input > UINT32_MAX)
-    // {
-    //     fprintf(stderr, "Error: INPUT ERROR");
-    //     return 1;
-    // }
-    // a = input;
     printf("Enter the number of positions to shift: "); // Запрос на ввод количества сдвигов
     scan_result = scanf("%d", &n); // Считывание количества сдвигов
     if (scan_result != 1)

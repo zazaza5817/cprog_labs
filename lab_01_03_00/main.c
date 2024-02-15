@@ -32,7 +32,7 @@ int main(void)
     }
 
     // Расчет нормального весаba
-    m_normal = (h * t)/ 240;
+    m_normal = (h * t) / 240;
 
     // Расчет BMI
     bmi = m / (h / 100 * h / 100);

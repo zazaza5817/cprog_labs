@@ -1,47 +1,39 @@
 #include <stdio.h>
-#include <float.h>
 #include <math.h>
 
-float get_f_value() {
-    int n = 0;
+
+float get_f_value(void)
+{
+    float result = 0;
     float input;
+    int n = 0;
     int scan_result;
     float new_term;
-    float result = 0;
+
     printf("enter first x: ");
     scan_result = scanf("%f", &input);
-    // Проверка успешности считывания числа с плавающей точкой
     if (scan_result != 1)
     {
         printf("only float must be inputted");
-        return -1; // Возвращаем ошибку, если ввод некорректен
+        return -1;
     }
 
-    // Цикл для считывания чисел, пока они не отрицательны
     while (input >= 0)
     {
-        // Повторная проверка ввода на корректность
+        n += 1;
+        new_term = input / n;
+        result += new_term;
+
+        printf("enter next x: ");
+        scan_result = scanf("%f", &input);
         if (scan_result != 1)
         {
             printf("only float must be inputted");
-            return -1; // Выходим из программы, если ввод некорректен
-        }
-        // Увеличиваем счетчик и обновляем результат
-        n += 1;
-        new_term = input / n;
-        if (new_term > FLT_MAX - result)
-        {
-            printf("OWERFLOW FLOAT TYPE");
             return -1;
         }
-        result += new_term;
-
-        // Запрашиваем следующее значение x
-        printf("enter next x: ");
-        scan_result = scanf("%f", &input);
     }
-    return sqrtf(result);
-};
+    return result;
+}
 
 
 int main(void)  
@@ -52,6 +44,6 @@ int main(void)
     {
         return 1;
     }
-    printf("Result: %.6f", result);
-    return 0; // Нормальное завершение программы
+    printf("Result: %.6lf", sqrtf(result));
+    return 0;
 }
