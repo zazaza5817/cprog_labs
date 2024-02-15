@@ -1,17 +1,47 @@
 #include <stdio.h>
 #include <limits.h>
 
-int main(void)  
+
+int get_fib(int n)
 {
-    // Инициализация переменных для хранения чисел Фибоначчи
     int fib0 = 0; // Первое число Фибоначчи
     int fib1 = 1; // Второе число Фибоначчи
     int fib2;  // Переменная для хранения следующего числа Фибоначчи
+    // Проверка случая, когда введено число  0 или  1
+    if (n <= 1)
+    {
+        if (n == 1)
+        {
+            return fib1; // Вывод второго числа Фибоначчи
+        }  
+        else  
+        {
+            return fib0; // Вывод первого числа Фибоначчи
+        }
+    }
+    for (int i = 0; i < n - 1; i++)
+    {
+        // Проверка возможности переполнения при вычислении следующего числа
+        if (fib1 > INT_MAX - fib0)
+        {
+            return -1;
+        }
+        fib2 = fib0 + fib1; // Вычисление следующего числа Фибоначчи
+        fib0 = fib1; // Перемещение второго числа в первое
+        fib1 = fib2; // Перемещение следующего числа во второе
+    }
+    return fib2;
+}
+
+
+int main(void)  
+{
+    // Инициализация переменных для хранения чисел Фибоначчи
     int n, status; // Переменные для хранения введенного пользователем числа и статуса чтения
 
     // Вывод приглашения к вводу числа
     printf("enter n: ");
-    fib2 = fib0 + fib1; // Вычисление третьего числа Фибоначчи
+
 
     // Чтение числа от пользователя и проверка корректности ввода
     status = scanf("%d", &n);
@@ -21,37 +51,13 @@ int main(void)
         printf("Wrong input!\n");
         return 1;
     }
-
-    // Проверка случая, когда введено число  0 или  1
-    if (n <= 1)
+    int fib = get_fib(n);
+    if (fib == -1)
     {
-        if (n == 1)
-        {
-            printf("%d", fib1); // Вывод второго числа Фибоначчи
-        }  
-        else  
-        {
-            printf("%d", fib0); // Вывод первого числа Фибоначчи
-        }
-        return 0; // Завершение программы
+        fprintf(stderr, "It is impossible to calculate a given Fibonacci number because int overflow occurs");
+        return 1;
     }
-    
-    // Цикл для вычисления чисел Фибоначчи
-    for (int i = 0; i < n - 2; i++)
-    {
-        // Проверка возможности переполнения при вычислении следующего числа
-        if (fib1 > INT_MAX - fib0)
-        {
-            printf("It is impossible to calculate a given Fibonacci number because int overflow occurs");
-            return 1;
-        }
-        fib2 = fib0 + fib1; // Вычисление следующего числа Фибоначчи
-        fib0 = fib1; // Перемещение второго числа в первое
-        fib1 = fib2; // Перемещение следующего числа во второе
-        // printf("%d\n", fib2); // Раскомментируйте эту строку, если хотите выводить каждое число Фибоначчи по мере его вычисления
-    }
-
     // Вывод искомого числа Фибоначчи
-    printf("Fibonacci number whose number was entered: %d\n", fib2);
+    printf("Fibonacci number whose number was entered: %d\n", fib);
     return 0;
 }

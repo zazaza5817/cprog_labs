@@ -2,24 +2,19 @@
 #include <float.h>
 #include <math.h>
 
-int main(void)  
-{
-    // Объявляем переменные для хранения результата и входных данных
-    float result = 0; // Инициализируем результат нулем
+float get_f_value() {
+    int n = 0;
     float input;
-    int n = 0; // Счетчик для деления
     int scan_result;
     float new_term;
-
-    // Запрашиваем первое значение x от пользователя
+    float result = 0;
     printf("enter first x: ");
     scan_result = scanf("%f", &input);
-
     // Проверка успешности считывания числа с плавающей точкой
     if (scan_result != 1)
     {
         printf("only float must be inputted");
-        return 1; // Возвращаем ошибку, если ввод некорректен
+        return -1; // Возвращаем ошибку, если ввод некорректен
     }
 
     // Цикл для считывания чисел, пока они не отрицательны
@@ -29,16 +24,15 @@ int main(void)
         if (scan_result != 1)
         {
             printf("only float must be inputted");
-            return 1; // Выходим из программы, если ввод некорректен
+            return -1; // Выходим из программы, если ввод некорректен
         }
-
         // Увеличиваем счетчик и обновляем результат
         n += 1;
         new_term = input / n;
-        if (new_term > DBL_MAX - result)
+        if (new_term > FLT_MAX - result)
         {
-            printf("OWERFLOW DOUBLE TYPE");
-            return 1;
+            printf("OWERFLOW FLOAT TYPE");
+            return -1;
         }
         result += new_term;
 
@@ -46,8 +40,18 @@ int main(void)
         printf("enter next x: ");
         scan_result = scanf("%f", &input);
     }
+    return sqrtf(result);
+};
 
-    // Выводим квадратный корень из суммы
-    printf("Result: %.6lf", sqrtf(result));
+
+int main(void)  
+{
+    float result;
+    result = get_f_value();
+    if (result < 0)
+    {
+        return 1;
+    }
+    printf("Result: %.6f", result);
     return 0; // Нормальное завершение программы
 }

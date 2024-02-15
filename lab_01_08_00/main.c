@@ -6,12 +6,7 @@ void print_four_byte_binary(uint32_t num)
 {
     for (int i = 31; i >= 0; i--)  
     {
-        // Вывод каждого бита числа от старшего к младшему
         printf("%d", (num >> i) & 1);
-        // Если бит на границе байта и не последний, то добавляем пробел для удобства чтения
-        // if ((i) %  8 ==  0 && i !=  0) {
-        //     printf(" ");
-        // }
     }
     printf("\n"); // Переход на новую строку после вывода всех битов
 }
@@ -31,18 +26,18 @@ int main(void)
     int scan_result; // Переменная для проверки успешности сканирования
     long long input;
     printf("Enter an unsigned integer four bytes long: "); // Запрос на ввод числа
-    scan_result = scanf("%lld", &input); // Считывание числа
+    scan_result = scanf("%u", &a); // Считывание числа
     if (scan_result != 1)
     {
         fprintf(stderr, "Error: an unsigned number must be entered"); // Сообщение об ошибке
         return 1; // Возврат из программы с кодом ошибки
     }
-    if (input < 0 || input > UINT32_MAX)
-    {
-        fprintf(stderr, "Error: INPUT ERROR");
-        return 1;
-    }
-    a = input;
+    // if (input < 0 || input > UINT32_MAX)
+    // {
+    //     fprintf(stderr, "Error: INPUT ERROR");
+    //     return 1;
+    // }
+    // a = input;
     printf("Enter the number of positions to shift: "); // Запрос на ввод количества сдвигов
     scan_result = scanf("%d", &n); // Считывание количества сдвигов
     if (scan_result != 1)
