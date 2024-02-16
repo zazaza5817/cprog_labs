@@ -49,11 +49,11 @@ int main(void)
     }
 
     float s_value = s(x, eps); // Вычисляем приближенное значение синуса
-    float f_value = asin(x); // Вычисляем точное значение синуса
-    absolute_error = fabs(f_value - s_value); // Вычисляем абсолютную ошибку
+    float f_value = (float)asin(x); // Вычисляем точное значение синуса
+    absolute_error = (float)fabs(f_value - s_value); // Вычисляем абсолютную ошибку
     relative_error = 0.0; // Инициализируем относительную ошибку
     if (fabs(f_value) > eps)
-        relative_error = absolute_error / fabs(f_value); // Вычисляем относительную ошибку
+        relative_error = absolute_error / (float)fabs(f_value); // Вычисляем относительную ошибку
     printf("s(x) = %.6f\n", s_value); // Выводим приближенное значение синуса
     printf("f(x) = %.6f\n", f_value); // Выводим точное значение синуса
     printf("Absolute error: %.6f\n", absolute_error); // Выводим абсолютную ошибку
