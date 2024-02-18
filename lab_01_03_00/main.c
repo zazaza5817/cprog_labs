@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+
+#define M_NORMAL_MULTIPLIER 240
+#define CENTIMETERS_IN_METER  100
+
 int main(void) 
 {
     // Объявление переменных
@@ -31,11 +35,11 @@ int main(void)
         return 1;
     }
 
-    // Расчет нормального весаba
-    m_normal = (h * t) / 240;
+    // Расчет нормального веса
+    m_normal = (h * t) / M_NORMAL_MULTIPLIER;
 
     // Расчет BMI
-    bmi = m / (h / 100 * h / 100);
+    bmi = m / (h / CENTIMETERS_IN_METER * h / CENTIMETERS_IN_METER);
 
     // Вывод результатов
     printf("Normal weight: %.6f кг\n", m_normal);

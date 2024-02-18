@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#define WATER_BOTTLE_PRICE 45
+#define BOTTLE_SELL_PRICE 20
+
 int main(void)
 {
     // Переменная для хранения общего количества копеек
@@ -18,7 +21,7 @@ int main(void)
     }
 
     // Проверка возможности покупки хотя бы одной бутылки
-    if (total_kopecks < 45)
+    if (total_kopecks < WATER_BOTTLE_PRICE)
     {
         // Вывод сообщения о максимальном количестве бутылок
         printf("The maximum number of water bottles that can be bought is:  0");
@@ -26,7 +29,7 @@ int main(void)
     }
 
     // Расчет максимального количества бутылок, которые можно купить
-    int answer = ((total_kopecks - 45) / 25) + 1;
+    int answer = ((total_kopecks - WATER_BOTTLE_PRICE) / (WATER_BOTTLE_PRICE - BOTTLE_SELL_PRICE)) + 1;
 
     // Вывод результата
     printf("The maximum number of water bottles that can be bought is: %d\n", answer);

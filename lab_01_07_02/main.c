@@ -1,7 +1,15 @@
 #include <stdio.h>
 #include <math.h>
 
-// Функция для вычисления приближенного значения синуса с помощью ряда Тейлора
+/**
+ * @brief Вычисление приближенного значения арксинуса с помощью ряда Тейлора
+ *
+ * Функция использует ряд Тейлора для вычисления приближенного значения арксинуса.
+ *  
+ * @param x Угол в радианах, для которого вычисляется арксинус
+ * @param eps Точность вычисления, при которой прекращается добавление членов ряда
+ * @return Приближенное значение арксинуса угла x
+ */
 float s(float x, float eps)
 {
     float current_term = x, result = 0.0; // Инициализация текущего члена и результата
@@ -19,7 +27,9 @@ float s(float x, float eps)
 
 int main(void)  
 {
-    float x, eps, absolute_error, relative_error; // Переменные для хранения входных данных и ошибок
+    float x;
+    float eps; 
+    float absolute_error, relative_error; 
     int scanned; // Переменная для проверки успешности чтения данных
 
     printf("Enter x value: ");
@@ -48,8 +58,8 @@ int main(void)
         return 1;
     }
 
-    float s_value = s(x, eps); // Вычисляем приближенное значение синуса
-    float f_value = (float)asin(x); // Вычисляем точное значение синуса
+    float s_value = s(x, eps); // Вычисляем приближенное значение арксинуса
+    float f_value = (float)asin(x); // Вычисляем точное значение арксинуса
     absolute_error = (float)fabs(f_value - s_value); // Вычисляем абсолютную ошибку
     relative_error = 0.0; // Инициализируем относительную ошибку
     if (fabs(f_value) > eps)
