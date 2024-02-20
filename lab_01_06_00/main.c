@@ -10,11 +10,11 @@
  * Эта функция вычисляет квадрат расстояни между двумя точками,
  * заданными координатами (x1, y1) и (x2, y2).
  *
- * @param x1 The x-coordinate of the first point.
- * @param y1 The y-coordinate of the first point.
- * @param x2 The x-coordinate of the second point.
- * @param y2 The y-coordinate of the second point.
- * @return The square of the Euclidean distance between the two points.
+ * @param x1 x-координата первой точки.
+ * @param y1 y-координата первой точки.
+ * @param x2 x-координата второй точки.
+ * @param y2 y-координата второй точки.
+ * @return Квадрат расстояни между двумя точками
  */
 double sqr_distance(double x1, double y1, double x2, double y2)  
 {
