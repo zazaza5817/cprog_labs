@@ -4,4 +4,4 @@
 *.gcda
 .DS_Store
 main
-scripts
+out.txt
