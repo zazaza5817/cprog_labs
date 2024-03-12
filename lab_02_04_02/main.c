@@ -21,7 +21,9 @@ int fill_array(int array[], int *n)
         {
             return 0;
         }
-        if (i == MAX_ARRAY_SIZE) {
+        // Проверка на "переполнение" массива
+        if (i == MAX_ARRAY_SIZE) 
+        {
             return OWERFLOW_EXIT_CODE;
         }
         array[i] = scanned_value;
