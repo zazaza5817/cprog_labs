@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #define MAX_ARRAY_SIZE 10
-#define OWERFLOW_EXIT_CODE 0
+#define OWERFLOW_EXIT_CODE 100
 
 /**
  * @brief Заполняет массив числами, введенными пользователем.
@@ -12,14 +12,19 @@
 int fill_array(int array[], int *n)
 {
     // Заполняем массив числами, введенными пользователем
-    for (int i = 0; i < MAX_ARRAY_SIZE; i++)
+    int scanned_value;
+    for (int i = 0; i < MAX_ARRAY_SIZE + 1; i++)
     {
         printf("enter next item: ");
         // Проверяем успешность ввода
-        if (scanf("%d", &array[i]) != 1)
+        if (scanf("%d", &scanned_value) != 1)
         {
             return 0;
         }
+        if (i == MAX_ARRAY_SIZE) {
+            return OWERFLOW_EXIT_CODE;
+        }
+        array[i] = scanned_value;
         *n += 1;
     }
     return 0;
@@ -73,7 +78,7 @@ int main(void)
     int array[MAX_ARRAY_SIZE];
 
     // Заполняем массив
-    fill_array(array, &n);
+    int exit_code = fill_array(array, &n);
 
     // Проверяем, что количество элементов больше нуля
     if (n == 0)
@@ -88,9 +93,5 @@ int main(void)
     print_array(array, n);
 
     // Проверяем, на особый код завершения
-    if (n == MAX_ARRAY_SIZE)
-    {
-        return OWERFLOW_EXIT_CODE;
-    }
-    return 0;
+    return exit_code;
 }
