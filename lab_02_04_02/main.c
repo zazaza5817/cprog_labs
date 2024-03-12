@@ -1,0 +1,94 @@
+#include <stdio.h>
+
+#define MAX_ARRAY_SIZE 10
+#define OWERFLOW_EXIT_CODE 100
+
+/**
+ * @brief Заполняет массив числами, введенными пользователем.
+ * @param array Массив для заполнения.
+ * @param n Указатель на переменную, в которой будет храниться количество элементов в массиве.
+ * @return 0 в случае успешного заполнения, иначе 1.
+ */
+int fillArray(int array[], int *n)
+{
+    // Заполняем массив числами, введенными пользователем
+    for (int i = 0; i < MAX_ARRAY_SIZE; i++)
+    {
+        printf("enter next item: ");
+        // Проверяем успешность ввода
+        if (scanf("%d", &array[i]) != 1)
+        {
+            return 0;
+        }
+        *n += 1;
+    }
+    return 0;
+}
+
+/**
+ * @brief Выводит элементы массива.
+ * @param array Массив для вывода.
+ * @param n Количество элементов в массиве.
+ */
+void printArray(int array[], int n)
+{
+    printf("Output array: ");
+    // Выводим элементы массива
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+}
+
+/**
+ * @brief Сортирует массив методом selection sort.
+ * @param arr Массив для сортировки.
+ * @param n Количество элементов в массиве.
+ */
+void selectionSort(int arr[], int n)
+{
+    int i, j, minIndex, temp;
+    for (i = 0; i < n - 1; i++)
+    {
+        minIndex = i;
+        for (j = i + 1; j < n; j++)
+        {
+            if (arr[j] < arr[minIndex])
+            {
+                minIndex = j;
+            }
+        }
+        temp = arr[minIndex];
+        arr[minIndex] = arr[i];
+        arr[i] = temp;
+    }
+}
+
+int main(void)
+{
+    int n = 0;
+    int array[MAX_ARRAY_SIZE];
+
+    // Заполняем массив
+    fillArray(array, &n);
+
+    // Проверяем, что количество элементов больше нуля
+    if (n == 0)
+    {
+        fprintf(stderr, "number of elements must be greater than zero");
+        return 1;
+    }
+    // Сортируем массив
+    selectionSort(array, n);
+
+    // Выводим отсортированный массив
+    printArray(array, n);
+
+    // Проверяем, на особый код завершения
+    if (n == MAX_ARRAY_SIZE)
+    {
+        return OWERFLOW_EXIT_CODE;
+    }
+    return 0;
+}
