@@ -48,19 +48,21 @@ void print_array(int array[], int n)
  */
 void selection_sort(int arr[], int n)
 {
-    int i, j, minIndex, temp;
+    int i, j;
+    int min_index;
+    int temp;
     for (i = 0; i < n - 1; i++)
     {
-        minIndex = i;
+        min_index = i;
         for (j = i + 1; j < n; j++)
         {
-            if (arr[j] < arr[minIndex])
+            if (arr[j] < arr[min_index])
             {
-                minIndex = j;
+                min_index = j;
             }
         }
-        temp = arr[minIndex];
-        arr[minIndex] = arr[i];
+        temp = arr[min_index];
+        arr[min_index] = arr[i];
         arr[i] = temp;
     }
 }

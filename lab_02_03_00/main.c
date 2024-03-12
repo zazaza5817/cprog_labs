@@ -63,19 +63,19 @@ bool is_palindrome(int num)
  */
 void remove_palindromes(int arr[], int *n)
 {
-    int readPtr = 0;
-    int writePtr = 0;
+    int read_ptr = 0;
+    int write_ptr = 0;
 
-    while (readPtr < *n)
+    while (read_ptr < *n)
     {
-        if (!is_palindrome(arr[readPtr]))
+        if (!is_palindrome(arr[read_ptr]))
         {
-            arr[writePtr] = arr[readPtr];
-            writePtr++;
+            arr[write_ptr] = arr[read_ptr];
+            write_ptr++;
         }
-        readPtr++;
+        read_ptr++;
     }
-    *n = writePtr;
+    *n = write_ptr;
 }
 
 int main(void)
@@ -105,6 +105,11 @@ int main(void)
     }
     // Удаляем палиндромы из массива
     remove_palindromes(array, &n);
+    if (n == 0)
+    {
+        fprintf(stderr, "there is no elements in output array");
+        return 1;
+    }
     // Выводим массив
     print_array(array, n);
     return 0;
