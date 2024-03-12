@@ -10,7 +10,7 @@
  * @param n Размер массива.
  * @return 0 в случае успеха, 1 в случае ошибки ввода.
  */
-int fillArray(int array[], int n)
+int fill_array(int array[], int n)
 {
     for (int i = 0; i < n; i++)
     {
@@ -29,7 +29,7 @@ int fillArray(int array[], int n)
  * @param array Массив для вывода.
  * @param n Размер массива.
  */
-void printArray(int array[], int n)
+void print_array(int array[], int n)
 {
     printf("Output array: ");
     for (int i = 0; i < n; i++)
@@ -44,7 +44,7 @@ void printArray(int array[], int n)
  * @param num Проверяемое число.
  * @return true, если число является палиндромом, иначе false.
  */
-bool isPalindrome(int num)
+bool is_palindrome(int num)
 {
     int reversed = 0, temp = num;
     while (temp != 0)
@@ -61,14 +61,14 @@ bool isPalindrome(int num)
  * @param arr Массив, из которого удаляются палиндромы.
  * @param n Указатель на размер массива, который изменяется в процессе удаления.
  */
-void removePalindromes(int arr[], int *n)
+void remove_palindromes(int arr[], int *n)
 {
     int readPtr = 0;
     int writePtr = 0;
 
     while (readPtr < *n)
     {
-        if (!isPalindrome(arr[readPtr]))
+        if (!is_palindrome(arr[readPtr]))
         {
             arr[writePtr] = arr[readPtr];
             writePtr++;
@@ -98,14 +98,14 @@ int main(void)
         return 1;
     }
     // Заполняем массив и проверяем на ошибки
-    if (fillArray(array, n) != 0)
+    if (fill_array(array, n) != 0)
     {
         fprintf(stderr, "Elements of array must be integers");
         return 1;
     }
     // Удаляем палиндромы из массива
-    removePalindromes(array, &n);
+    remove_palindromes(array, &n);
     // Выводим массив
-    printArray(array, n);
+    print_array(array, n);
     return 0;
 }

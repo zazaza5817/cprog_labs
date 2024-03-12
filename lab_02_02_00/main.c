@@ -8,7 +8,7 @@
  * @param n Размер массива.
  * @return 0 в случае успеха, 1 в случае ошибки ввода.
  */
-int fillArray(int array[], int n)
+int fill_array(int array[], int n)
 {
     for (int i = 0; i < n; i++)
     {
@@ -27,7 +27,7 @@ int fillArray(int array[], int n)
  * @param n Размер массива.
  * @return Среднее значение элементов массива.
  */
-double getAverage(int array[], int n)
+double get_average(int array[], int n)
 {
     int sum = 0;
     for (int i = 0; i < n; i++)
@@ -42,7 +42,7 @@ double getAverage(int array[], int n)
  * @param array Массив для вывода.
  * @param n Размер массива.
  */
-void printArray(int array[], int n)
+void print_array(int array[], int n)
 {
     printf("Output array: ");
     for (int i = 0; i < n; i++)
@@ -60,7 +60,7 @@ void printArray(int array[], int n)
  * @param output_n Указатель на переменную, хранящую размер выходного массива.
  * @param average Среднее значение элементов исходного массива.
  */
-void createOutputArray(int array[], int output_array[], int n, int *output_n, double average)
+void create_output_array(int array[], int output_array[], int n, int *output_n, double average)
 {
     for (int i = 0; i < n; i++)
     {
@@ -90,14 +90,19 @@ int main(void)
         fprintf(stderr, "n must be greater than zero and lower then or equal to ten");
         return 1;
     }
-    if (fillArray(array, n) != 0)
+    if (fill_array(array, n) != 0)
     {
         fprintf(stderr, "Elements of array must be integers");
         return 1;
     }
-    double average = getAverage(array, n);
+    double average = get_average(array, n);
     int output_n = 0;
-    createOutputArray(array, output_array, n, &output_n, average);
-    printArray(output_array, output_n);
+    create_output_array(array, output_array, n, &output_n, average);
+    if (output_n == 0)
+    {
+        fprintf(stderr, "There is no elements that greater then average in array");
+        return 1;
+    }
+    print_array(output_array, output_n);
     return 0;
 }

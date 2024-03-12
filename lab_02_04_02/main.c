@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #define MAX_ARRAY_SIZE 10
-#define OWERFLOW_EXIT_CODE 100
+#define OWERFLOW_EXIT_CODE 0
 
 /**
  * @brief Заполняет массив числами, введенными пользователем.
@@ -9,7 +9,7 @@
  * @param n Указатель на переменную, в которой будет храниться количество элементов в массиве.
  * @return 0 в случае успешного заполнения, иначе 1.
  */
-int fillArray(int array[], int *n)
+int fill_array(int array[], int *n)
 {
     // Заполняем массив числами, введенными пользователем
     for (int i = 0; i < MAX_ARRAY_SIZE; i++)
@@ -30,7 +30,7 @@ int fillArray(int array[], int *n)
  * @param array Массив для вывода.
  * @param n Количество элементов в массиве.
  */
-void printArray(int array[], int n)
+void print_array(int array[], int n)
 {
     printf("Output array: ");
     // Выводим элементы массива
@@ -46,7 +46,7 @@ void printArray(int array[], int n)
  * @param arr Массив для сортировки.
  * @param n Количество элементов в массиве.
  */
-void selectionSort(int arr[], int n)
+void selection_sort(int arr[], int n)
 {
     int i, j, minIndex, temp;
     for (i = 0; i < n - 1; i++)
@@ -71,7 +71,7 @@ int main(void)
     int array[MAX_ARRAY_SIZE];
 
     // Заполняем массив
-    fillArray(array, &n);
+    fill_array(array, &n);
 
     // Проверяем, что количество элементов больше нуля
     if (n == 0)
@@ -80,10 +80,10 @@ int main(void)
         return 1;
     }
     // Сортируем массив
-    selectionSort(array, n);
+    selection_sort(array, n);
 
     // Выводим отсортированный массив
-    printArray(array, n);
+    print_array(array, n);
 
     // Проверяем, на особый код завершения
     if (n == MAX_ARRAY_SIZE)

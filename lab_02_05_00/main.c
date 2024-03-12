@@ -8,7 +8,7 @@
  * @param n Размер массива.
  * @return 0 в случае успешного заполнения, 1 в случае ошибки ввода.
  */
-int fillArray(int *parray, int n)
+int fill_array(int *parray, int n)
 {
     // Запрашиваем у пользователя ввод значений для массива
     for (int i = 0; i < n; i++)
@@ -29,7 +29,7 @@ int fillArray(int *parray, int n)
  * @param n Размер массива.
  * @return Максимальное значение, которое можно получить, складывая элементы массива.
  */
-int findValue(int *parray, int n)
+int find_value(int *parray, int n)
 {
     // Инициализируем максимальное значение как сумму первого и последнего элементов массива
     int max_value = *(parray) + *(parray + (n - 1));
@@ -68,14 +68,14 @@ int main(void)
         return 1;
     }
     // Заполняем массив значениями, введенными пользователем
-    if (fillArray(array, n) != 0)
+    if (fill_array(array, n) != 0)
     {
         fprintf(stderr, "Elements of array must be integers");
         return 1;
     }
 
     // Находим максимальное значение, которое можно получить, складывая элементы массива
-    int value = findValue(array, n);
+    int value = find_value(array, n);
 
     // Выводим найденное максимальное значение
     printf("search value: %d", value);
