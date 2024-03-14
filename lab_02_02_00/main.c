@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stddef.h>
 
 #define ARRAY_SIZE 10
 
@@ -80,7 +79,7 @@ int main(void)
     int output_array[ARRAY_SIZE];
 
     printf("Enter n - dimension of array: ");
-    if (scanf("%ld", &n) != 1)
+    if (scanf("%zu", &n) != 1)
     {
         fprintf(stderr, "n must be integer");
         return 1;

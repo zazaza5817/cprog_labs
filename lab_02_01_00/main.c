@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stddef.h>
 
 #define ARRAY_SIZE 10
 
@@ -53,7 +52,7 @@ int main(void)
 
     printf("Enter n - dimension of array: ");
     // Проверяем успешность ввода размера массива
-    if (scanf("%ld", &n) != 1)
+    if (scanf("%zu", &n) != 1)
     {
         fprintf(stderr, "n must be integer");
         return 1;

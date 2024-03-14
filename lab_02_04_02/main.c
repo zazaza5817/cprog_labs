@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stddef.h>
 
 #define MAX_ARRAY_SIZE 10
 #define OWERFLOW_EXIT_CODE 100
