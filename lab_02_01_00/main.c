@@ -47,8 +47,9 @@ int sum_even_elements(int array[], int n, int *even_count)
 
 int main(void)
 {
-    int n;                 // Размер массива
-    int array[ARRAY_SIZE]; // Массив для хранения чисел
+    size_t max_size = ARRAY_SIZE;
+    int n;               // Размер массива
+    int array[max_size]; // Массив для хранения чисел
 
     printf("Enter n - dimension of array: ");
     // Проверяем успешность ввода размера массива

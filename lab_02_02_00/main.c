@@ -67,16 +67,17 @@ void create_output_array(int array[], int output_array[], int n, int *output_n, 
         if (array[i] > average)
         {
             output_array[*output_n] = array[i];
-            *output_n = *output_n + 1;
+            *output_n += 1;
         }
     }
 }
 
 int main(void)
 {
+    size_t max_size = ARRAY_SIZE;
     int n;
-    int array[ARRAY_SIZE];
-    int output_array[ARRAY_SIZE];
+    int array[max_size];
+    int output_array[max_size];
 
     printf("Enter n - dimension of array: ");
     if (scanf("%d", &n) != 1)

@@ -80,8 +80,9 @@ void remove_palindromes(int arr[], int *n)
 
 int main(void)
 {
+    size_t array_size = ARRAY_SIZE;
     int n;
-    int array[ARRAY_SIZE];
+    int array[array_size];
 
     printf("Enter n - dimension of array: ");
     // Проверяем успешность ввода размера массива

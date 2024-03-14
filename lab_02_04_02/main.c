@@ -76,8 +76,9 @@ void selection_sort(int arr[], int n)
 
 int main(void)
 {
+    size_t array_size = MAX_ARRAY_SIZE;
     int n = 0;
-    int array[MAX_ARRAY_SIZE];
+    int array[array_size];
 
     // Заполняем массив
     int exit_code = fill_array(array, &n);
