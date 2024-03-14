@@ -8,10 +8,10 @@
  * @param n Размер массива.
  * @return 0 в случае успеха, 1 в случае ошибки ввода.
  */
-int fill_array(int array[], int n)
+int fill_array(int array[], size_t n)
 {
     // Заполняем массив
-    for (int i = 0; i < n; i++)
+    for (size_t i = 0; i < n; i++)
     {
         printf("enter next item: ");
         // Проверяем успешность ввода
@@ -29,11 +29,11 @@ int fill_array(int array[], int n)
  * @param n Размер массива.
  * @return Сумма четных элементов массива.
  */
-int sum_even_elements(int array[], int n, int *even_count)
+int sum_even_elements(int array[], size_t n, int *even_count)
 {
     int sum = 0; // Инициализируем сумму
     // Проходим по массиву
-    for (int i = 0; i < n; i++)
+    for (size_t i = 0; i < n; i++)
     {
         // Проверяем, является ли элемент четным
         if (array[i] % 2 == 0)
@@ -47,13 +47,12 @@ int sum_even_elements(int array[], int n, int *even_count)
 
 int main(void)
 {
-    size_t max_size = ARRAY_SIZE;
-    int n;               // Размер массива
-    int array[max_size]; // Массив для хранения чисел
+    size_t n;               // Размер массива
+    int array[ARRAY_SIZE]; // Массив для хранения чисел
 
     printf("Enter n - dimension of array: ");
     // Проверяем успешность ввода размера массива
-    if (scanf("%d", &n) != 1)
+    if (scanf("%ld", &n) != 1)
     {
         fprintf(stderr, "n must be integer");
         return 1;

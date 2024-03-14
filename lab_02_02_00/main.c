@@ -8,9 +8,9 @@
  * @param n Размер массива.
  * @return 0 в случае успеха, 1 в случае ошибки ввода.
  */
-int fill_array(int array[], int n)
+int fill_array(int array[], size_t n)
 {
-    for (int i = 0; i < n; i++)
+    for (size_t i = 0; i < n; i++)
     {
         printf("enter next item: ");
         if (scanf("%d", &array[i]) != 1)
@@ -27,10 +27,10 @@ int fill_array(int array[], int n)
  * @param n Размер массива.
  * @return Среднее значение элементов массива.
  */
-double get_average(int array[], int n)
+double get_average(int array[], size_t n)
 {
     int sum = 0;
-    for (int i = 0; i < n; i++)
+    for (size_t i = 0; i < n; i++)
     {
         sum += array[i];
     }
@@ -42,10 +42,10 @@ double get_average(int array[], int n)
  * @param array Массив для вывода.
  * @param n Размер массива.
  */
-void print_array(int array[], int n)
+void print_array(int array[], size_t n)
 {
     printf("Output array: ");
-    for (int i = 0; i < n; i++)
+    for (size_t i = 0; i < n; i++)
     {
         printf("%d ", array[i]);
     }
@@ -60,9 +60,9 @@ void print_array(int array[], int n)
  * @param output_n Указатель на переменную, хранящую размер выходного массива.
  * @param average Среднее значение элементов исходного массива.
  */
-void create_output_array(int array[], int output_array[], int n, int *output_n, double average)
+void create_output_array(int array[], int output_array[], size_t n, size_t *output_n, double average)
 {
-    for (int i = 0; i < n; i++)
+    for (size_t i = 0; i < n; i++)
     {
         if (array[i] > average)
         {
@@ -74,13 +74,12 @@ void create_output_array(int array[], int output_array[], int n, int *output_n, 
 
 int main(void)
 {
-    size_t max_size = ARRAY_SIZE;
-    int n;
-    int array[max_size];
-    int output_array[max_size];
+    size_t n;
+    int array[ARRAY_SIZE];
+    int output_array[ARRAY_SIZE];
 
     printf("Enter n - dimension of array: ");
-    if (scanf("%d", &n) != 1)
+    if (scanf("%ld", &n) != 1)
     {
         fprintf(stderr, "n must be integer");
         return 1;
@@ -97,7 +96,7 @@ int main(void)
         return 1;
     }
     double average = get_average(array, n);
-    int output_n = 0;
+    size_t output_n = 0;
     create_output_array(array, output_array, n, &output_n, average);
     if (output_n == 0)
     {

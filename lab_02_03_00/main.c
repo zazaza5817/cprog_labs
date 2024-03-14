@@ -10,9 +10,9 @@
  * @param n Размер массива.
  * @return 0 в случае успеха, 1 в случае ошибки ввода.
  */
-int fill_array(int array[], int n)
+int fill_array(int array[], size_t n)
 {
-    for (int i = 0; i < n; i++)
+    for (size_t i = 0; i < n; i++)
     {
         printf("enter next item: ");
         // Проверяем успешность ввода
@@ -29,10 +29,10 @@ int fill_array(int array[], int n)
  * @param array Массив для вывода.
  * @param n Размер массива.
  */
-void print_array(int array[], int n)
+void print_array(int array[], size_t n)
 {
     printf("Output array: ");
-    for (int i = 0; i < n; i++)
+    for (size_t i = 0; i < n; i++)
     {
         printf("%d ", array[i]);
     }
@@ -61,10 +61,10 @@ bool is_palindrome(int num)
  * @param arr Массив, из которого удаляются палиндромы.
  * @param n Указатель на размер массива, который изменяется в процессе удаления.
  */
-void remove_palindromes(int arr[], int *n)
+void remove_palindromes(int arr[], size_t *n)
 {
-    int read_ptr = 0;
-    int write_ptr = 0;
+    size_t read_ptr = 0;
+    size_t write_ptr = 0;
 
     while (read_ptr < *n)
     {
@@ -80,13 +80,11 @@ void remove_palindromes(int arr[], int *n)
 
 int main(void)
 {
-    size_t array_size = ARRAY_SIZE;
-    int n;
-    int array[array_size];
-
+    size_t n;
+    int array[ARRAY_SIZE];
     printf("Enter n - dimension of array: ");
     // Проверяем успешность ввода размера массива
-    if (scanf("%d", &n) != 1)
+    if (scanf("%ld", &n) != 1)
     {
         fprintf(stderr, "n must be integer");
         return 1;

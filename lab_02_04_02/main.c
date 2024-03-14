@@ -9,11 +9,11 @@
  * @param n Указатель на переменную, в которой будет храниться количество элементов в массиве.
  * @return 0 в случае успешного заполнения, иначе 1.
  */
-int fill_array(int array[], int *n)
+int fill_array(int array[], size_t *n)
 {
     // Заполняем массив числами, введенными пользователем
     int scanned_value;
-    for (int i = 0; i < MAX_ARRAY_SIZE + 1; i++)
+    for (size_t i = 0; i < MAX_ARRAY_SIZE + 1; i++)
     {
         printf("enter next item: ");
         // Проверяем успешность ввода
@@ -37,11 +37,11 @@ int fill_array(int array[], int *n)
  * @param array Массив для вывода.
  * @param n Количество элементов в массиве.
  */
-void print_array(int array[], int n)
+void print_array(int array[], size_t n)
 {
     printf("Output array: ");
     // Выводим элементы массива
-    for (int i = 0; i < n; i++)
+    for (size_t i = 0; i < n; i++)
     {
         printf("%d ", array[i]);
     }
@@ -53,10 +53,10 @@ void print_array(int array[], int n)
  * @param arr Массив для сортировки.
  * @param n Количество элементов в массиве.
  */
-void selection_sort(int arr[], int n)
+void selection_sort(int arr[], size_t n)
 {
-    int i, j;
-    int min_index;
+    size_t i, j;
+    size_t min_index;
     int temp;
     for (i = 0; i < n - 1; i++)
     {
@@ -76,9 +76,8 @@ void selection_sort(int arr[], int n)
 
 int main(void)
 {
-    size_t array_size = MAX_ARRAY_SIZE;
-    int n = 0;
-    int array[array_size];
+    size_t n = 0;
+    int array[MAX_ARRAY_SIZE];
 
     // Заполняем массив
     int exit_code = fill_array(array, &n);

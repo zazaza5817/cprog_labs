@@ -8,10 +8,10 @@
  * @param n Размер массива.
  * @return 0 в случае успешного заполнения, 1 в случае ошибки ввода.
  */
-int fill_array(int *parray, int n)
+int fill_array(int *parray, size_t n)
 {
     // Запрашиваем у пользователя ввод значений для массива
-    for (int i = 0; i < n; i++)
+    for (size_t i = 0; i < n; i++)
     {
         printf("enter next item: ");
         // Проверяем успешность ввода
@@ -29,13 +29,13 @@ int fill_array(int *parray, int n)
  * @param n Размер массива.
  * @return Максимальное значение, которое можно получить, складывая элементы массива.
  */
-int find_value(int *parray, int n)
+int find_value(int *parray, size_t n)
 {
     // Инициализируем максимальное значение как сумму первого и последнего элементов массива
     int max_value = *(parray) + *(parray + (n - 1));
     int value;
     // Проходим по всем возможным комбинациям элементов массива
-    for (int i = 1; i <= (n - 1) / 2; i++)
+    for (size_t i = 1; i <= (n - 1) / 2; i++)
     {
         value = *(parray + i) + *(parray + (n - i - 1));
         // Если текущая сумма больше максимальной, обновляем максимальное значение
@@ -49,9 +49,8 @@ int find_value(int *parray, int n)
 
 int main(void)
 {
-    size_t array_size = ARRAY_SIZE;
-    int n;
-    int array[array_size];
+    size_t n;
+    int array[ARRAY_SIZE];
 
     // Запрашиваем у пользователя размер массива
     printf("Enter n - dimension of array: ");
