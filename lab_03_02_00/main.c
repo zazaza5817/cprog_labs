@@ -54,7 +54,6 @@ int process_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t *n, size_t *m, int
         }
         if (first_counter == last_counter && first_counter != 0)
         {
-            printf("INSERTING %d\n", i);
             insert_row(matrix, n, m, i + 1);
             i++;
             insertions++;

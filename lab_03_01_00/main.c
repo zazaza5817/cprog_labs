@@ -13,7 +13,7 @@ void print_array(int array[], size_t n)
     printf("\n");
 }
 
-bool isDescending(int matrix[MAX_SIZE][MAX_SIZE], size_t n, size_t col)
+bool is_descending(int matrix[MAX_SIZE][MAX_SIZE], size_t n, size_t col)
 {
     for (size_t i = 0; i < n - 1; i++)
     {
@@ -72,7 +72,7 @@ int main(void)
     int result[MAX_SIZE];
     for (size_t i = 0; i < m; i++)
     {
-        result[i] = isDescending(matrix, n, i) ? 1 : 0;
+        result[i] = is_descending(matrix, n, i) ? 1 : 0;
     }
 
     print_array(result, m);
