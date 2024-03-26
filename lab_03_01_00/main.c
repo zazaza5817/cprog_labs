@@ -72,7 +72,7 @@ int main(void)
     int result[MAX_SIZE];
     for (size_t i = 0; i < m; i++)
     {
-        result[i] = is_descending(matrix, n, i) ? 1 : 0;
+        result[i] = is_descending(matrix, n, i);
     }
 
     print_array(result, m);

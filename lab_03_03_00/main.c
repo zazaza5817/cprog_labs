@@ -3,9 +3,11 @@
 
 #define MAX_SIZE 10
 
-int sum_row(int row[], int size) {
+int sum_row(int row[], size_t size)
+{
     int sum = 0;
-    for (int i = 0; i < size; i++) {
+    for (size_t i = 0; i < size; i++)
+    {
         sum += row[i];
     }
     return sum;
@@ -50,24 +52,28 @@ int fill_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
     return 0;
 }
 
-void bubble_sort_matrix(int matrix[10][10], int n, int m) {
-    for (int i = 0; i < n - 1; i ++){
+void bubble_sort_matrix(int matrix[10][10], int n, int m)
+{
+    for (size_t i = 0; i < n - 1; i++)
+    {
         bool swapped = false;
-        for (int j = 0; j < n - i - 1; j ++){
-            if (sum_row(matrix[j], m) > sum_row(matrix[j + 1], m)){
+        for (size_t j = 0; j < n - i - 1; j++)
+        {
+            if (sum_row(matrix[j], m) > sum_row(matrix[j + 1], m))
+            {
                 swapped = true;
                 swap_rows(matrix, m, j, j + 1);
             }
         }
-        if (! swapped) 
+        if (!swapped)
         {
             return;
         }
     }
 }
 
-
-int main() {
+int main()
+{
     size_t n, m;
     int matrix[MAX_SIZE * 2][MAX_SIZE];
 

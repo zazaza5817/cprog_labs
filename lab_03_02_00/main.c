@@ -1,18 +1,21 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
+#include <stdlib.h>
 
 #define MAX_SIZE 10
 #define MAX_DIGIT 9
 
 int first_digit(int n)
 {
+    n = abs(n);
     int digits = (int)log10(n);
     return (int)(n / pow(10, digits));
 }
 
 int last_digit(int n)
 {
+    n = abs(n);
     return n % 10;
 }
 
