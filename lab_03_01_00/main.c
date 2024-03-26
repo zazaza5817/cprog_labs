@@ -3,6 +3,11 @@
 
 #define MAX_SIZE 10
 
+/**
+ * @brief Выводит элементы массива
+ * @param array Массив для вывода
+ * @param n Размер массива
+ */
 void print_array(int array[], size_t n)
 {
     printf("Output array: ");
@@ -13,6 +18,13 @@ void print_array(int array[], size_t n)
     printf("\n");
 }
 
+/**
+ * @brief Проверяет, является ли столбец матрицы по убыванию
+ * @param matrix Матрица для проверки
+ * @param n Количество строк в матрице
+ * @param col Индекс столбца для проверки
+ * @return true, если столбец по убыванию, иначе false
+ */
 bool is_descending(int matrix[MAX_SIZE][MAX_SIZE], size_t n, size_t col)
 {
     for (size_t i = 0; i < n - 1; i++)
@@ -25,6 +37,13 @@ bool is_descending(int matrix[MAX_SIZE][MAX_SIZE], size_t n, size_t col)
     return true;
 }
 
+/**
+ * @brief Заполняет матрицу значениями, введенными пользователем
+ * @param matrix Матрица для заполнения
+ * @param n Количество строк в матрице
+ * @param m Количество столбцов в матрице
+ * @return 0 в случае успеха, 1 в случае ошибки ввода
+ */
 int fill_matrix(int matrix[MAX_SIZE][MAX_SIZE], size_t n, size_t m)
 {
     int value;

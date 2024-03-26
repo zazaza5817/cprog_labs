@@ -3,6 +3,12 @@
 
 #define MAX_SIZE 10
 
+/**
+ * @brief Вычисляет сумму элементов в строке матрицы.
+ * @param row Массив, содержащий элементы строки матрицы.
+ * @param size Размер строки матрицы.
+ * @return Сумма элементов в строке матрицы.
+ */
 int sum_row(int row[], size_t size)
 {
     int sum = 0;
@@ -13,6 +19,13 @@ int sum_row(int row[], size_t size)
     return sum;
 }
 
+/**
+ * @brief Меняет местами две строки матрицы.
+ * @param matrix Матрица, в которой происходит обмен строк.
+ * @param m Количество столбцов в матрице.
+ * @param index_1 Индекс первой строки для обмена.
+ * @param index_2 Индекс второй строки для обмена.
+ */
 void swap_rows(int matrix[MAX_SIZE][MAX_SIZE], size_t m, size_t index_1, size_t index_2)
 {
     for (size_t i = 0; i < m; i++)
@@ -23,6 +36,12 @@ void swap_rows(int matrix[MAX_SIZE][MAX_SIZE], size_t m, size_t index_1, size_t 
     }
 }
 
+/**
+ * @brief Выводит матрицу на экран.
+ * @param matrix Матрица для вывода.
+ * @param n Количество строк в матрице.
+ * @param m Количество столбцов в матрице.
+ */
 void display_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
 {
     for (size_t i = 0; i < n; i++)
@@ -35,6 +54,13 @@ void display_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
     }
 }
 
+/**
+ * @brief Заполняет матрицу значениями, введенными пользователем.
+ * @param matrix Матрица для заполнения.
+ * @param n Количество строк в матрице.
+ * @param m Количество столбцов в матрице.
+ * @return 0 в случае успешного заполнения, 1 в случае ошибки ввода.
+ */
 int fill_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
 {
     int value;
@@ -52,6 +78,12 @@ int fill_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
     return 0;
 }
 
+/**
+ * @brief Сортирует матрицу по сумме элементов в строках с помощью пузырьковой сортировки.
+ * @param matrix Матрица для сортировки.
+ * @param n Количество строк в матрице.
+ * @param m Количество столбцов в матрице.
+ */
 void bubble_sort_matrix(int matrix[10][10], int n, int m)
 {
     for (size_t i = 0; i < n - 1; i++)

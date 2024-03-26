@@ -6,6 +6,11 @@
 #define MAX_SIZE 10
 #define MAX_DIGIT 9
 
+/**
+ * @brief Возвращает первую цифру числа.
+ * @param n Число.
+ * @return Первая цифра числа.
+ */
 int first_digit(int n)
 {
     n = abs(n);
@@ -13,12 +18,24 @@ int first_digit(int n)
     return (int)(n / pow(10, digits));
 }
 
+/**
+ * @brief Возвращает последнюю цифру числа.
+ * @param n Число.
+ * @return Последняя цифра числа.
+ */
 int last_digit(int n)
 {
     n = abs(n);
     return n % 10;
 }
 
+/**
+ * @brief Вставляет строку в матрицу.
+ * @param matrix Матрица.
+ * @param n Количество строк в матрице.
+ * @param m Количество столбцов в матрице.
+ * @param index Индекс строки для вставки.
+ */
 void insert_row(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t *n, size_t *m, size_t index)
 {
     for (size_t i = *n; i >= index; i--)
@@ -35,6 +52,14 @@ void insert_row(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t *n, size_t *m, size_t
     *n += 1;
 }
 
+/**
+ * @brief Обрабатывает матрицу, вставляя строки при определенных условиях.
+ * @param matrix Матрица.
+ * @param n Количество строк в матрице.
+ * @param m Количество столбцов в матрице.
+ * @param digit Цифра для проверки.
+ * @return 0, если вставки произведены, 1 в противном случае.
+ */
 int process_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t *n, size_t *m, int digit)
 {
     int insertions = 0;
@@ -69,6 +94,12 @@ int process_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t *n, size_t *m, int
     return 0;
 }
 
+/**
+ * @brief Выводит матрицу на экран.
+ * @param matrix Матрица.
+ * @param n Количество строк в матрице.
+ * @param m Количество столбцов в матрице.
+ */
 void display_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
 {
     for (size_t i = 0; i < n; i++)
@@ -81,6 +112,13 @@ void display_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
     }
 }
 
+/**
+ * @brief Заполняет матрицу значениями.
+ * @param matrix Матрица.
+ * @param n Количество строк в матрице.
+ * @param m Количество столбцов в матрице.
+ * @return 0 в случае успеха, 1 в случае ошибки.
+ */
 int fill_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
 {
     int value;
