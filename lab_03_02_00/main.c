@@ -14,8 +14,10 @@
 int first_digit(int n)
 {
     n = abs(n);
-    int digits = (int)log10(n);
-    return (int)(n / pow(10, digits));
+    while (n >= 10) {
+        n /= 10;
+    }
+    return n;
 }
 
 /**
