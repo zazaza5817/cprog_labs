@@ -27,6 +27,10 @@ void print_array(int array[], size_t n)
  */
 bool is_descending(int matrix[MAX_SIZE][MAX_SIZE], size_t n, size_t col)
 {
+    if (n == 1)
+    {
+        return false;
+    }
     for (size_t i = 0; i < n - 1; i++)
     {
         if (matrix[i][col] <= matrix[i + 1][col])

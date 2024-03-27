@@ -87,10 +87,6 @@ int process_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t *n, size_t *m, int
             insertions++;
         }
     }
-    if (insertions == 0)
-    {
-        return 1;
-    }
     return 0;
 }
 
