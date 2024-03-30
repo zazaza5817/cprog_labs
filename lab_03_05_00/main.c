@@ -18,8 +18,8 @@ int is_prime(int num)
     {
         return 0;
     }
-    int sqrtNum = sqrt(num);
-    for (int i = 3; i <= sqrtNum; i += 2)
+    int sqrt_num = sqrt(num);
+    for (int i = 3; i <= sqrt_num; i += 2)
     {
         if (num % i == 0)
         {
