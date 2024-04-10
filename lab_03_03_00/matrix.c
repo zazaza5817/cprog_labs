@@ -90,7 +90,7 @@ void bubble_sort_matrix(int matrix[MAX_SIZE][MAX_SIZE], size_t n, size_t m)
             if (sum_row(matrix[j], m) > sum_row(matrix[j + 1], m))
             {
                 swapped = true;
-                swap_rows(matrix[j], matrix[j+1], m);
+                swap_rows(matrix[j], matrix[j + 1], m);
             }
         }
         if (!swapped)
