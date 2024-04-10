@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #define MAX_DIGIT 9
+#define BASE_TEN 10
 
 
 /**
@@ -10,9 +11,9 @@
 int first_digit(int n)
 {
     n = abs(n);
-    while (n >= 10)
+    while (n >= BASE_TEN)
     {
-        n /= 10;
+        n /= BASE_TEN;
     }
     return n;
 }
@@ -25,5 +26,5 @@ int first_digit(int n)
 int last_digit(int n)
 {
     n = abs(n);
-    return n % 10;
+    return n % BASE_TEN;
 }

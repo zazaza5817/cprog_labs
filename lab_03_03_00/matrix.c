@@ -18,18 +18,17 @@ int sum_row(int row[], size_t size)
 
 /**
  * @brief Меняет местами две строки матрицы.
- * @param matrix Матрица, в которой происходит обмен строк.
  * @param m Количество столбцов в матрице.
- * @param index_1 Индекс первой строки для обмена.
- * @param index_2 Индекс второй строки для обмена.
+ * @param row_1 Первую строчку для обмена.
+ * @param row_2 Вторую строчку для обмена.
  */
-void swap_rows(int matrix[MAX_SIZE][MAX_SIZE], size_t m, size_t index_1, size_t index_2)
+void swap_rows(int row_1[MAX_SIZE], int row_2[MAX_SIZE], size_t m)
 {
     for (size_t i = 0; i < m; i++)
     {
-        int temp = matrix[index_1][i];
-        matrix[index_1][i] = matrix[index_2][i];
-        matrix[index_2][i] = temp;
+        int temp = row_1[i];
+        row_1[i] = row_2[i];
+        row_2[i] = temp;
     }
 }
 
@@ -39,7 +38,7 @@ void swap_rows(int matrix[MAX_SIZE][MAX_SIZE], size_t m, size_t index_1, size_t 
  * @param n Количество строк в матрице.
  * @param m Количество столбцов в матрице.
  */
-void display_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
+void display_matrix(int matrix[MAX_SIZE][MAX_SIZE], size_t n, size_t m)
 {
     for (size_t i = 0; i < n; i++)
     {
@@ -58,7 +57,7 @@ void display_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
  * @param m Количество столбцов в матрице.
  * @return 0 в случае успешного заполнения, 1 в случае ошибки ввода.
  */
-int fill_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
+int fill_matrix(int matrix[MAX_SIZE][MAX_SIZE], size_t n, size_t m)
 {
     int value;
     for (size_t i = 0; i < n; i++)
@@ -81,7 +80,7 @@ int fill_matrix(int matrix[MAX_SIZE * 2][MAX_SIZE], size_t n, size_t m)
  * @param n Количество строк в матрице.
  * @param m Количество столбцов в матрице.
  */
-void bubble_sort_matrix(int matrix[10][10], size_t n, size_t m)
+void bubble_sort_matrix(int matrix[MAX_SIZE][MAX_SIZE], size_t n, size_t m)
 {
     for (size_t i = 0; i < n - 1; i++)
     {
@@ -91,7 +90,7 @@ void bubble_sort_matrix(int matrix[10][10], size_t n, size_t m)
             if (sum_row(matrix[j], m) > sum_row(matrix[j + 1], m))
             {
                 swapped = true;
-                swap_rows(matrix, m, j, j + 1);
+                swap_rows(matrix[j], matrix[j+1], m);
             }
         }
         if (!swapped)

@@ -1,6 +1,6 @@
 #include "matrix.h"
 
-int main()
+int main(void)
 {
     size_t n, m;
     int matrix[MAX_SIZE][MAX_SIZE];

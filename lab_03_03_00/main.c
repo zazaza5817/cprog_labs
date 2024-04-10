@@ -1,9 +1,9 @@
 #include "matrix.h"
 
-int main()
+int main(void)
 {
     size_t n, m;
-    int matrix[MAX_SIZE * 2][MAX_SIZE];
+    int matrix[MAX_SIZE][MAX_SIZE];
 
     printf("Enter the number of matrix rows: ");
     if (scanf("%zu", &n) != 1 || n == 0 || n > MAX_SIZE)
