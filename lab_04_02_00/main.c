@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define MAX_CHARS 256
 #define MAX_WORDS MAX_CHARS / 2
@@ -61,15 +62,33 @@ int main()
     }
     size_t word_count = word_index;
 
+    size_t repeats_count = 0;
+    size_t repeats[MAX_WORDS];
+
     for (size_t i = 0; i < word_count; i++)
     {
-
+        bool flag = false;
         size_t result = 0;
+        for (size_t j = 0; j < repeats_count; j++)
+        {
+            if (i == repeats[j])
+            {
+                flag = true;
+            }
+        }
+        if (flag)
+        {
+            continue;
+        }
         for (size_t j = 0; j < word_count; j++)
         {
             if (strcmp(words[i], words[j]) == 0)
             {
                 result++;
+                if (i != j)
+                {
+                    repeats[repeats_count++] = j;
+                }
             }
         }
         word_counts[i] = result;
@@ -77,7 +96,10 @@ int main()
     printf("\nResult: ");
     for (int i = 0; i < word_index; i++)
     {
-        printf("%s %d\n", words[i], word_counts[i]);
+        if (word_counts[i] != 0)
+        {
+            printf("%s %d\n", words[i], word_counts[i]);
+        }
     }
 
     return 0;

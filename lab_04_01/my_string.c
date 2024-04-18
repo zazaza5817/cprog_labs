@@ -78,16 +78,21 @@ char *my_strchr(char *str, int c)
     return NULL;
 }
 
-char *my_strrchr(char *str, int chr)
+char *my_strrchr(char *str, int c)
 {
     char *last_occurrence = NULL;
     while (*str)
     {
-        if (*str == chr)
+        if (*str == c)
         {
             last_occurrence = str;
         }
         str++;
     }
-    return last_occurrence;
+
+    if (c == '\0' && *str == '\0')
+    {
+        last_occurrence = str;
+    }
+    return (char *)last_occurrence;
 }
