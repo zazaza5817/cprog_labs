@@ -41,19 +41,41 @@ char *my_strtok(char *str, char *delimiters)
     return str;
 }
 
+
+int input(char string[MAX_CHARS])
+{
+    char temp_string[MAX_CHARS + 2];
+
+    if (fgets(temp_string, MAX_CHARS + 2, stdin) == NULL)
+        return 1;
+
+    temp_string[strcspn(temp_string, "\n")] = '\0';
+
+    if (strlen(temp_string) && strlen(temp_string) > MAX_CHARS)
+        return 1;
+
+    strncpy(string, temp_string, MAX_CHARS + 1);
+
+    return 0;
+}
+
+
 int main()
 {
-    char input[MAX_CHARS + 1];
+    char input_s[MAX_CHARS + 1];
     char *words[MAX_WORDS];
-    int word_counts[MAX_WORDS] = {0};
+    int word_counts[MAX_WORDS] = { 0 };
 
     printf("Input string: ");
-    fgets(input, sizeof(input), stdin);
+    if (input(input_s) != 0)
+    {
+        return 1;
+    }
 
-    input[strcspn(input, "\n")] = 0;
+    input_s[strcspn(input_s, "\n")] = 0;
 
     size_t word_index = 0;
-    char *token = my_strtok(input, " ");
+    char *token = my_strtok(input_s, " ");
     while (token != NULL)
     {
         words[word_index] = token;
@@ -93,12 +115,12 @@ int main()
         }
         word_counts[i] = result;
     }
-    printf("\nResult: ");
+    printf("Result: ");
     for (int i = 0; i < word_index; i++)
     {
         if (word_counts[i] != 0)
         {
-            printf("%s %d\n", words[i], word_counts[i]);
+            printf("\n%s %d", words[i], word_counts[i]);
         }
     }
 
