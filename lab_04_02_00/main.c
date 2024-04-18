@@ -2,31 +2,37 @@
 #include <string.h>
 
 #define MAX_CHARS 256
-#define MAX_WORDS MAX_CHARS / 2 
+#define MAX_WORDS MAX_CHARS / 2
 
-
-char* my_strtok(char* str, char* delimiters) {
-    static char* next_token = NULL;
-    if (str == NULL) {
+char *my_strtok(char *str, char *delimiters)
+{
+    static char *next_token = NULL;
+    if (str == NULL)
+    {
         str = next_token;
     }
 
-    if (str == NULL) {
+    if (str == NULL)
+    {
         return NULL;
     }
 
     str += strspn(str, delimiters);
 
-    if (*str == '\0') {
+    if (*str == '\0')
+    {
         next_token = NULL;
         return NULL;
     }
 
-    char* end = str + strcspn(str, delimiters);
+    char *end = str + strcspn(str, delimiters);
 
-    if (*end == '\0') {
+    if (*end == '\0')
+    {
         next_token = NULL;
-    } else {
+    }
+    else
+    {
         *end = '\0';
         next_token = end + 1;
     }
@@ -34,41 +40,44 @@ char* my_strtok(char* str, char* delimiters) {
     return str;
 }
 
-int main() {
+int main()
+{
     char input[MAX_CHARS + 1];
     char *words[MAX_WORDS];
-    int wordCounts[MAX_WORDS] = {0};
+    int word_counts[MAX_WORDS] = {0};
 
     printf("Input string: ");
     fgets(input, sizeof(input), stdin);
 
     input[strcspn(input, "\n")] = 0;
 
-    size_t wordIndex = 0;
+    size_t word_index = 0;
     char *token = my_strtok(input, " ");
-    while (token != NULL) {
-        words[wordIndex] = token;
-        wordIndex++;
+    while (token != NULL)
+    {
+        words[word_index] = token;
+        word_index++;
         token = my_strtok(NULL, " ");
     }
-    size_t wordCount = wordIndex;
+    size_t word_count = word_index;
 
-    for (size_t i = 0; i < wordCount; i ++)
+    for (size_t i = 0; i < word_count; i++)
     {
 
         size_t result = 0;
-        for (size_t j = 0; j < wordCount; j ++)
+        for (size_t j = 0; j < word_count; j++)
         {
             if (strcmp(words[i], words[j]) == 0)
             {
-                result ++;
+                result++;
             }
         }
-        wordCounts[i] = result;
+        word_counts[i] = result;
     }
     printf("\nResult: ");
-    for (int i = 0; i < wordIndex; i++) {
-        printf("%s %d\n", words[i], wordCounts[i]);
+    for (int i = 0; i < word_index; i++)
+    {
+        printf("%s %d\n", words[i], word_counts[i]);
     }
 
     return 0;

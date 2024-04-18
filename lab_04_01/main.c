@@ -6,8 +6,8 @@ int main(void)
 {
     int result_diff = 0;
 
-    char *str_1[] = {"bebbrr", "cat", "second", ""};
-    char *str_2[] = {"black", "dog", "", ""};
+    char *str_1[] = { "bebbrr", "cat", "second", "" };
+    char *str_2[] = { "black", "dog", "", "" };
     size_t tests_count = 4;
     for (size_t i = 0; i < tests_count; i++)
     {
@@ -17,8 +17,8 @@ int main(void)
         }
     }
 
-    char *str_3[] = {"bebbrr", "cat", "second", ""};
-    char *str_4[] = {"black", "dog", "", ""};
+    char *str_3[] = { "bebbrr", "cat", "second", "" };
+    char *str_4[] = { "black", "dog", "", "" };
     tests_count = 4;
     for (size_t i = 0; i < tests_count; i++)
     {
@@ -28,8 +28,8 @@ int main(void)
         }
     }
 
-    char *str_5[] = {"test", "cat", "second", ""};
-    char *str_6[] = {"s", "dog", "", ""};
+    char *str_5[] = { "test", "cat", "second", "" };
+    char *str_6[] = { "s", "dog", "", "" };
     tests_count = 4;
     for (size_t i = 0; i < tests_count; i++)
     {
@@ -39,8 +39,8 @@ int main(void)
         }
     }
 
-    char *str_7[] = {"bebbrr", "cat", "second", ""};
-    char str_8[] = {'r', 'a', '?', 'b'};
+    char *str_7[] = { "bebbrr", "cat", "second", "" };
+    char str_8[] = { 'r', 'a', '?', 'b' };
     tests_count = 4;
     for (size_t i = 0; i < tests_count; i++)
     {
@@ -50,8 +50,8 @@ int main(void)
         }
     }
 
-    char *str_9[] = {"bebbrr", "cat", "second", ""};
-    char str_10[] = {'r', 'a', '!', 'b'};
+    char *str_9[] = { "bebbrr", "cat", "second", "" };
+    char str_10[] = { 'r', 'a', '!', '\0' };
     tests_count = 4;
     for (size_t i = 0; i < tests_count; i++)
     {
