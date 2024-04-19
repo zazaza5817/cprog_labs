@@ -4,45 +4,41 @@
 
 #define MAX_CHARS 256
 #define MAX_WORDS MAX_CHARS / 2
+#define MAX_CHARS_IN_WORD 16
 
-char *my_strtok(char *str, char *delimiters)
-{
-    static char *next_token = NULL;
-    if (str == NULL)
+int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *words_n){
+    *words_n = 0;
+    char *beg_ptr = input_s;
+    char *end_ptr = beg_ptr;
+
+    while (*end_ptr != '\0')
     {
-        str = next_token;
+        while(*beg_ptr == ' ' && *beg_ptr != '\0')
+            beg_ptr ++;
+        end_ptr = beg_ptr;
+        while(*end_ptr != ' ' && *end_ptr != '\0')
+            end_ptr ++;
+
+        size_t word_len = end_ptr - beg_ptr;
+        if (word_len > MAX_CHARS_IN_WORD)
+            return 1;
+
+        size_t i = 0;
+        while (beg_ptr != end_ptr)
+        {
+            words[*words_n][i] = *beg_ptr;
+            beg_ptr ++;
+            i ++;
+        }
+        
+        words[*words_n][i] = 0;
+        *words_n += 1;
     }
 
-    if (str == NULL)
-    {
-        return NULL;
-    }
-
-    str += strspn(str, delimiters);
-
-    if (*str == '\0')
-    {
-        next_token = NULL;
-        return NULL;
-    }
-
-    char *end = str + strcspn(str, delimiters);
-
-    if (*end == '\0')
-    {
-        next_token = NULL;
-    }
-    else
-    {
-        *end = '\0';
-        next_token = end + 1;
-    }
-
-    return str;
+    return 0;
 }
 
-
-int input(char string[MAX_CHARS])
+int input(char string[MAX_CHARS + 1])
 {
     char temp_string[MAX_CHARS + 2];
 
@@ -59,11 +55,10 @@ int input(char string[MAX_CHARS])
     return 0;
 }
 
-
 int main()
 {
     char input_s[MAX_CHARS + 1];
-    char *words[MAX_WORDS];
+    char words[MAX_WORDS][MAX_CHARS_IN_WORD+1];
     int word_counts[MAX_WORDS] = { 0 };
 
     printf("Input string: ");
@@ -71,31 +66,26 @@ int main()
     {
         return 1;
     }
+    
+    size_t word_count;
+    split(input_s, words, &word_count);
 
-    input_s[strcspn(input_s, "\n")] = 0;
-
-    size_t word_index = 0;
-    char *token = my_strtok(input_s, " ");
-    while (token != NULL)
+    if (word_count == 0)
     {
-        words[word_index] = token;
-        word_index++;
-        token = my_strtok(NULL, " ");
+        return 1;
     }
-    size_t word_count = word_index;
 
-    size_t repeats_count = 0;
-    size_t repeats[MAX_WORDS];
 
     for (size_t i = 0; i < word_count; i++)
     {
         bool flag = false;
         size_t result = 0;
-        for (size_t j = 0; j < repeats_count; j++)
+        for (size_t j = 0; j < i; j++)
         {
-            if (i == repeats[j])
+            if (strcmp(words[i], words[j]) == 0)
             {
                 flag = true;
+                break;
             }
         }
         if (flag)
@@ -107,22 +97,18 @@ int main()
             if (strcmp(words[i], words[j]) == 0)
             {
                 result++;
-                if (i != j)
-                {
-                    repeats[repeats_count++] = j;
-                }
             }
         }
         word_counts[i] = result;
     }
+
     printf("Result: ");
-    for (int i = 0; i < word_index; i++)
+    for (int i = 0; i < word_count; i++)
     {
         if (word_counts[i] != 0)
         {
-            printf("\n%s %d", words[i], word_counts[i]);
+            printf("%s %d\n", words[i], word_counts[i]);
         }
     }
-
     return 0;
 }
