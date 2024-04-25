@@ -18,7 +18,11 @@ int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *w
         end_ptr = beg_ptr;
         while(*end_ptr != ' ' && *end_ptr != '\0')
             end_ptr ++;
-
+        
+        if(beg_ptr == end_ptr)
+        {
+            return 1;
+        }
         size_t word_len = end_ptr - beg_ptr;
         if (word_len > MAX_CHARS_IN_WORD)
             return 1;
@@ -30,11 +34,9 @@ int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *w
             beg_ptr ++;
             i ++;
         }
-        
-        words[*words_n][i] = 0;
+        words[*words_n][i] = '\0';
         *words_n += 1;
     }
-
     return 0;
 }
 
