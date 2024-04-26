@@ -15,10 +15,10 @@ int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *w
 
     while (*end_ptr != '\0')
     {
-        while (isspace(*beg_ptr) && *beg_ptr != '\0')
+        while ((isspace(*beg_ptr) || ispunct(*beg_ptr)) && *beg_ptr != '\0')
             beg_ptr++;
         end_ptr = beg_ptr;
-        while (!isspace(*end_ptr) && *end_ptr != '\0')
+        while (!(isspace(*end_ptr) || ispunct(*end_ptr)) && *end_ptr != '\0')
             end_ptr++;
 
         if (beg_ptr == end_ptr)
@@ -63,7 +63,7 @@ int main()
 {
     char input_s[MAX_CHARS + 1];
     char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1];
-    int word_counts[MAX_WORDS] = {0};
+    int word_counts[MAX_WORDS] = { 0 };
 
     // printf("Input string: ");
     if (input(input_s) != 0)

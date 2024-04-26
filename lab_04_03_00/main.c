@@ -27,10 +27,10 @@ int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *w
 
     while (*end_ptr != '\0')
     {
-        while (*beg_ptr == ' ' && *beg_ptr != '\0')
+        while ((isspace(*beg_ptr) || ispunct(*beg_ptr)) && *beg_ptr != '\0')
             beg_ptr++;
         end_ptr = beg_ptr;
-        while (*end_ptr != ' ' && *end_ptr != '\0')
+        while (!(isspace(*end_ptr) || ispunct(*end_ptr)) && *end_ptr != '\0')
             end_ptr++;
 
         if (beg_ptr == end_ptr)
@@ -72,7 +72,7 @@ void process_word(char *string, char *new_word)
     new_word[i] = '\0';
 }
 
-void create_new_str(char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t words_n, char *new_str)
+int create_new_str(char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t words_n, char *new_str)
 {
     char new_word[MAX_CHARS_IN_WORD + 1];
     size_t j = 0;
@@ -93,7 +93,13 @@ void create_new_str(char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t words_n
         new_str[j] = ' ';
         j++;
     }
-    new_str[j - 1] = '\0';
+    if (j != 0)
+    {
+        new_str[j - 1] = '\0';
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
 int main(void)
@@ -112,7 +118,10 @@ int main(void)
     {
         return 1;
     }
-    create_new_str(words, words_n, new_str);
+    if (create_new_str(words, words_n, new_str) != 0)
+    {
+        return 1;
+    }
     printf("Result: %s\n", new_str);
     return 0;
 }
