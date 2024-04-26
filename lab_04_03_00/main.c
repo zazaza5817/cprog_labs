@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 #define MAX_CHARS 256
 #define MAX_WORDS MAX_CHARS / 2
@@ -97,7 +98,9 @@ int create_new_str(char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t words_n,
     {
         new_str[j - 1] = '\0';
         return 0;
-    } else {
+    }
+    else
+    {
         return 1;
     }
 }
