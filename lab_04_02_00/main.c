@@ -1,25 +1,27 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <ctype.h>
 
 #define MAX_CHARS 256
 #define MAX_WORDS MAX_CHARS / 2
 #define MAX_CHARS_IN_WORD 16
 
-int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *words_n){
+int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *words_n)
+{
     *words_n = 0;
     char *beg_ptr = input_s;
     char *end_ptr = beg_ptr;
 
     while (*end_ptr != '\0')
     {
-        while(*beg_ptr == ' ' && *beg_ptr != '\0')
-            beg_ptr ++;
+        while (isspace(*beg_ptr) && *beg_ptr != '\0')
+            beg_ptr++;
         end_ptr = beg_ptr;
-        while(*end_ptr != ' ' && *end_ptr != '\0')
-            end_ptr ++;
-        
-        if(beg_ptr == end_ptr)
+        while (!isspace(*end_ptr) && *end_ptr != '\0')
+            end_ptr++;
+
+        if (beg_ptr == end_ptr)
         {
             return 1;
         }
@@ -31,8 +33,8 @@ int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *w
         while (beg_ptr != end_ptr)
         {
             words[*words_n][i] = *beg_ptr;
-            beg_ptr ++;
-            i ++;
+            beg_ptr++;
+            i++;
         }
         words[*words_n][i] = '\0';
         *words_n += 1;
@@ -60,15 +62,15 @@ int input(char string[MAX_CHARS + 1])
 int main()
 {
     char input_s[MAX_CHARS + 1];
-    char words[MAX_WORDS][MAX_CHARS_IN_WORD+1];
-    int word_counts[MAX_WORDS] = { 0 };
+    char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1];
+    int word_counts[MAX_WORDS] = {0};
 
-    printf("Input string: ");
+    // printf("Input string: ");
     if (input(input_s) != 0)
     {
         return 1;
     }
-    
+
     size_t word_count;
     split(input_s, words, &word_count);
 
@@ -76,7 +78,6 @@ int main()
     {
         return 1;
     }
-
 
     for (size_t i = 0; i < word_count; i++)
     {

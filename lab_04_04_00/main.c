@@ -78,7 +78,7 @@ int main()
 {
     char input_s[MAX_CHARS + 1];
 
-    printf("Input string: ");
+    // printf("Input string: ");
     if (input(input_s) != 0)
     {
         return 1;
@@ -89,11 +89,11 @@ int main()
 
     if (is_valid_ip(input_ip))
     {
-        printf("YES\n");
+        printf("YES");
     }
     else
     {
-        printf("NO\n");
+        printf("NO");
     }
 
     return 0;
