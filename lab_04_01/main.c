@@ -39,8 +39,8 @@ int main(void)
         }
     }
 
-    char *str_7[] = { "bebbrr", "cat", "second", "" };
-    char str_8[] = { 'r', 'a', '?', 'b' };
+    char *str_7[] = { "bebbrr", "", "a", "ab", "abc", "abc" };
+    char str_8[] = { 'r', 'a', 'a', 'b', 'g', '\0' };
     tests_count = 4;
     for (size_t i = 0; i < tests_count; i++)
     {
