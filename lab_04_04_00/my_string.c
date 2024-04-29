@@ -57,7 +57,10 @@ int input(char string[MAX_CHARS + 1])
 {
     char temp_string[MAX_CHARS + 2];
 
-    fgets(temp_string, MAX_CHARS + 2, stdin);
+    if(fgets(temp_string, MAX_CHARS + 2, stdin) == NULL)
+    {
+        return 1;   
+    }
     
     if (strcspn(temp_string, "\n") == MAX_CHARS+1)
     {
