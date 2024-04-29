@@ -1,6 +1,6 @@
 #include "my_string.h"
 
-int main()
+int main(void)
 {
     char input_s[MAX_CHARS + 1];
 

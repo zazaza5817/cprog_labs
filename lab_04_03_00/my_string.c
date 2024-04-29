@@ -4,12 +4,20 @@ int input(char string[MAX_CHARS + 1])
 {
     char temp_string[MAX_CHARS + 2];
 
-    if (fgets(temp_string, MAX_CHARS + 2, stdin) == NULL)
+    fgets(temp_string, MAX_CHARS + 2, stdin);
+    
+    if (strcspn(temp_string, "\n") == MAX_CHARS+1)
+    {
         return 1;
-    temp_string[strcspn(temp_string, "\n")] = '\0';
+    }
 
-    if (strlen(temp_string) && strlen(temp_string) > MAX_CHARS)
+    temp_string[strcspn(temp_string, "\n")] = '\0';
+    
+    if (strlen(temp_string) == 0)
+    {
         return 1;
+    }
+
     strncpy(string, temp_string, MAX_CHARS + 1);
     return 0;
 }
