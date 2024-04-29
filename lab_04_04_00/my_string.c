@@ -1,19 +1,44 @@
 #include "my_string.h"
 
+// void strip(char *str, char *new_str)
+// {
+//     int i = 0, k = 0;
+
+//     while (str[i] != '\0')
+//     {
+//         if (str[i] != ' ' && str[i] != '\t')
+//         {
+//             new_str[k] = str[i];
+//             k++;
+//         }
+//         i++;
+//     }
+//     new_str[k] = '\0';
+// }
 void strip(char *str, char *new_str)
 {
-    int i = 0, k = 0;
-
-    while (str[i] != '\0')
+    if (str == NULL || *str == '\0')
     {
-        if (str[i] != ' ' && str[i] != '\t')
-        {
-            new_str[k] = str[i];
-            k++;
-        }
-        i++;
+        new_str[0] = '\0';
+        return;
     }
-    new_str[k] = '\0';
+
+    while (isspace(*str))
+        str++;
+
+    char *output_ptr = new_str;
+    while (*str != '\0')
+    {
+        *output_ptr = *str;
+        output_ptr++;
+        str++;
+    }
+
+    output_ptr--;
+    while (new_str < output_ptr && isspace(*output_ptr))
+        output_ptr--;
+
+    output_ptr[1] = '\0';
 }
 
 int is_valid_ip(char *str)
@@ -57,18 +82,18 @@ int input(char string[MAX_CHARS + 1])
 {
     char temp_string[MAX_CHARS + 2];
 
-    if(fgets(temp_string, MAX_CHARS + 2, stdin) == NULL)
+    if (fgets(temp_string, MAX_CHARS + 2, stdin) == NULL)
     {
-        return 1;   
+        return 1;
     }
-    
-    if (strcspn(temp_string, "\n") == MAX_CHARS+1)
+
+    if (strcspn(temp_string, "\n") == MAX_CHARS + 1)
     {
         return 1;
     }
 
     temp_string[strcspn(temp_string, "\n")] = '\0';
-    
+
     if (strlen(temp_string) == 0)
     {
         return 1;

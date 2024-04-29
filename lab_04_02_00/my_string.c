@@ -39,18 +39,18 @@ int input(char string[MAX_CHARS + 1])
 {
     char temp_string[MAX_CHARS + 2];
 
-    if(fgets(temp_string, MAX_CHARS + 2, stdin) == NULL)
+    if (fgets(temp_string, MAX_CHARS + 2, stdin) == NULL)
     {
-        return 1;   
+        return 1;
     }
-    
-    if (strcspn(temp_string, "\n") == MAX_CHARS+1)
+
+    if (strcspn(temp_string, "\n") == MAX_CHARS + 1)
     {
         return 1;
     }
 
     temp_string[strcspn(temp_string, "\n")] = '\0';
-    
+
     if (strlen(temp_string) == 0)
     {
         return 1;
