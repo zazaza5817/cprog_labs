@@ -1,20 +1,5 @@
 #include "my_string.h"
 
-// void strip(char *str, char *new_str)
-// {
-//     int i = 0, k = 0;
-
-//     while (str[i] != '\0')
-//     {
-//         if (str[i] != ' ' && str[i] != '\t')
-//         {
-//             new_str[k] = str[i];
-//             k++;
-//         }
-//         i++;
-//     }
-//     new_str[k] = '\0';
-// }
 void strip(char *str, char *new_str)
 {
     if (str == NULL || *str == '\0')
@@ -94,10 +79,10 @@ int input(char string[MAX_CHARS + 1])
 
     temp_string[strcspn(temp_string, "\n")] = '\0';
 
-    if (strlen(temp_string) == 0)
-    {
-        return 1;
-    }
+    // if (strlen(temp_string) == 0)
+    // {
+    //     return 1;
+    // }
 
     strncpy(string, temp_string, MAX_CHARS + 1);
     return 0;
