@@ -4,7 +4,6 @@ int main(void)
 {
     char input_s[MAX_CHARS + 1];
 
-    // printf("Input string: ");
     if (input(input_s) != 0)
     {
         return 1;

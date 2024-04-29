@@ -1,5 +1,11 @@
 #include "my_string.h"
 
+/**
+ * @brief Считывает строку из стандартного ввода, удаляя символ новой строки в конце.
+ * 
+ * @param string Массив символов, в который будет скопирована введенная строка.
+ * @return int Возвращает 0, если строка успешно считывается, иначе 1.
+ */
 int input(char string[MAX_CHARS + 1])
 {
     char temp_string[MAX_CHARS + 2];
@@ -25,6 +31,14 @@ int input(char string[MAX_CHARS + 1])
     return 0;
 }
 
+/**
+ * @brief Разделяет входную строку на слова, сохраняя их в массив.
+ * 
+ * @param input_s Входная строка для разделения на слова.
+ * @param words Массив для хранения разделенных слов.
+ * @param words_n Указатель на переменную, в которую будет записано количество слов.
+ * @return int Возвращает 0 при успешном разделении, иначе 1.
+ */
 int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *words_n)
 {
     *words_n = 0;
@@ -60,6 +74,12 @@ int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *w
     return 0;
 }
 
+/**
+ * @brief Обрабатывает слово, удаляя все символы, отличные от первого.
+ * 
+ * @param string Исходное слово.
+ * @param new_word Массив символов, в который будет скопирована обработанная строка.
+ */
 void process_word(char *string, char *new_word)
 {
     char first_char = *string;
@@ -78,6 +98,14 @@ void process_word(char *string, char *new_word)
     new_word[i] = '\0';
 }
 
+/**
+ * @brief Создает новую строку из массива слов, обрабатывая каждое слово.
+ * 
+ * @param words Массив слов для обработки.
+ * @param words_n Количество слов в массиве.
+ * @param new_str Массив символов, в который будет записана новая строка.
+ * @return int Возвращает 0 при успешном создании новой строки, иначе 1.
+ */
 int create_new_str(char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t words_n, char *new_str)
 {
     char new_word[MAX_CHARS_IN_WORD + 1];

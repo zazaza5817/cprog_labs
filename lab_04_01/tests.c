@@ -1,5 +1,9 @@
 #include "tests.h"
 
+/**
+ * @brief Тестирует функцию my_strpbrk.
+ * @return Количество различий между результатами стандартной функции strpbrk и вашей реализации.
+ */
 int test_my_strpbrk(void)
 {
     int result_diff = 0;
@@ -17,6 +21,10 @@ int test_my_strpbrk(void)
     return result_diff;
 }
 
+/**
+ * @brief Тестирует функцию my_strspn.
+ * @return Количество различий между результатами стандартной функции strspn и вашей реализации.
+ */
 int test_my_strspn(void)
 {
     int result_diff = 0;
@@ -34,6 +42,10 @@ int test_my_strspn(void)
     return result_diff;
 }
 
+/**
+ * @brief Тестирует функцию my_strcspn.
+ * @return Количество различий между результатами стандартной функции strcspn и вашей реализации.
+ */
 int test_my_strcspn(void)
 {
     int result_diff = 0;
@@ -51,6 +63,10 @@ int test_my_strcspn(void)
     return result_diff;
 }
 
+/**
+ * @brief Тестирует функцию my_strchr.
+ * @return Количество различий между результатами стандартной функции strchr и вашей реализации.
+ */
 int test_my_strchr(void)
 {
     int result_diff = 0;
@@ -68,6 +84,10 @@ int test_my_strchr(void)
     return result_diff;
 }
 
+/**
+ * @brief Тестирует функцию my_strrchr.
+ * @return Количество различий между результатами стандартной функции strrchr и вашей реализации.
+ */
 int test_my_strrchr(void)
 {
     int result_diff = 0;

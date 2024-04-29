@@ -1,5 +1,11 @@
 #include "my_string.h"
 
+/**
+ * @brief Находит первое вхождение символа из char_set в строке str.
+ * @param str Строка, в которой производится поиск.
+ * @param char_set Набор символов, среди которых ищется.
+ * @return Указатель на первое вхождение символа из char_set в строке str, или NULL, если такого символа нет.
+ */
 char *my_strpbrk(char *str, char *char_set)
 {
     while (*str != 0)
@@ -18,6 +24,12 @@ char *my_strpbrk(char *str, char *char_set)
     return NULL;
 }
 
+/**
+ * @brief Считает количество символов в начале строки str1, которые присутствуют в char_set.
+ * @param str1 Строка, в которой производится подсчет.
+ * @param char_set Набор символов, среди которых ищется.
+ * @return Количество символов в начале строки str1, которые присутствуют в char_set.
+ */
 size_t my_strspn(char *str1, char *char_set)
 {
     size_t count = 0;
@@ -42,6 +54,12 @@ size_t my_strspn(char *str1, char *char_set)
     return count;
 }
 
+/**
+ * @brief Считает количество символов в начале строки string1, которые не присутствуют в string2.
+ * @param string1 Строка, в которой производится подсчет.
+ * @param string2 Строка, содержащая символы, которые исключаются из подсчета.
+ * @return Количество символов в начале строки string1, которые не присутствуют в string2.
+ */
 size_t my_strcspn(char *string1, char *string2)
 {
     char *p1;
@@ -60,6 +78,12 @@ size_t my_strcspn(char *string1, char *string2)
     return p1 - string1;
 }
 
+/**
+ * @brief Находит первое вхождение символа c в строке str.
+ * @param str Строка, в которой производится поиск.
+ * @param c Символ, который ищется.
+ * @return Указатель на первое вхождение символа c в строке str, или NULL, если такого символа нет.
+ */
 char *my_strchr(char *str, int c)
 {
     char *position = str;
@@ -78,6 +102,12 @@ char *my_strchr(char *str, int c)
     return NULL;
 }
 
+/**
+ * @brief Находит последнее вхождение символа c в строке str.
+ * @param str Строка, в которой производится поиск.
+ * @param c Символ, последнее вхождение которого ищется.
+ * @return Указатель на последнее вхождение символа c в строке str, или NULL, если такого символа нет.
+ */
 char *my_strrchr(char *str, int c)
 {
     char *last_occurrence = NULL;

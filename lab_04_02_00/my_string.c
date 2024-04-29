@@ -1,5 +1,14 @@
 #include "my_string.h"
 
+/**
+ * @brief Разделяет входную строку на слова, сохраняя их в массиве.
+ *
+ * @param input_s Входная строка.
+ * @param words Массив для сохранения слов.
+ * @param words_n Указатель на переменную, в которую будет записано
+ * количество найденных слов.
+ * @return 0 в случае успеха, 1 в случае ошибки.
+ */
 int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *words_n)
 {
     *words_n = 0;
@@ -35,6 +44,12 @@ int split(char *input_s, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], size_t *w
     return 0;
 }
 
+/**
+ * @brief Считывает строку из стандартного ввода.
+ *
+ * @param string Буфер для сохранения считанной строки.
+ * @return 0 в случае успеха, 1 в случае ошибки.
+ */
 int input(char string[MAX_CHARS + 1])
 {
     char temp_string[MAX_CHARS + 2];
@@ -60,6 +75,13 @@ int input(char string[MAX_CHARS + 1])
     return 0;
 }
 
+/**
+ * @brief Обрабатывает массив слов, подсчитывая количество вхождений каждого слова.
+ *
+ * @param word_n Количество слов в массиве.
+ * @param words Массив слов.
+ * @param word_counts Массив для сохранения количества вхождений каждого слова.
+ */
 void process_words(size_t word_n, char words[MAX_WORDS][MAX_CHARS_IN_WORD + 1], int word_counts[MAX_WORDS])
 {
     for (size_t i = 0; i < word_n; i++)
